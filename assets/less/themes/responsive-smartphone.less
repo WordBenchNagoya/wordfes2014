@@ -1,0 +1,241 @@
+/**
+ * For Smartphone Less FIle
+ */
+
+
+/**
+ * Flag Setting
+ */
+body{
+	padding-top: 40px;
+	&:before{
+		width: 83px;
+		height: 49px;
+		-webkit-background-size: 100% auto;
+		     -o-background-size: 100% auto;
+		        background-size: 100% auto;
+	}
+	&:after{
+		width: 83px;
+		height: 49px;
+		-webkit-background-size: 100% auto;
+		     -o-background-size: 100% auto;
+		        background-size: 100% auto;
+	}
+}
+#wpadminbar{
+	display: none !important;
+}
+/**
+ * Header
+ */
+.header{
+	padding-top: 0;
+	padding-bottom: 10px;
+	top: 0;
+	position: fixed;
+	background: rgba(60,182,196,0.7);
+	overflow: hidden;
+	width: 100%;
+	&.header-minimal{
+		overflow: visible;
+		z-index: 200;
+		.nav-area{
+			position: fixed;
+			background: rgba(60,182,196,0.7);
+			top: 0;
+			z-index: 200;
+		}
+		.logo-area{
+			margin-top: 60px;
+		}
+	}
+	/**
+	 * Header Social Icon
+	 */
+	.social-area{
+		margin-top: 20px;
+		height: 20px;
+		max-height: 20px;
+		float: left;
+	  // share btn
+		.sns-button{
+			margin-left: 21px;
+			width: 80px !important;
+			max-height: 20px;
+		}
+	}
+	.navbar-collapse{
+		ul{
+			li{
+				background-image: none;
+				a{
+					background-image: none;
+				}
+				&.btn.btn-warning{
+					margin-left: 0;
+				}
+			}
+		}
+	}
+}
+
+/**
+ * Overwrite Grid System padding & margin
+ */
+
+.row{
+	margin-left: -10px;
+	margin-right: -10px;
+}
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.container{
+	padding-left: 0px;
+	padding-right: 0px;
+	.main.col-lg-9{
+
+	}
+	.post-contents{
+		.main-block{
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+	}
+}
+/**
+ * Live Stage
+ */
+#livestage {
+
+	position: inherit;
+	min-height: inherit;
+	// background: none;
+	background-size: 100%;
+  // span
+	span{
+		// display: none;
+	}
+  // slider
+	.slider {
+		position: inherit;
+		margin-top:0;
+		margin-left:0;
+		p{
+			img{
+				height: auto;
+			}
+		}
+	}
+}
+
+
+
+/**
+ * Schedule
+ */
+#schedule section{
+	background: none;
+}
+
+/**
+ * Home Background
+ */
+
+#canvas{
+	margin-left: -930px;
+	margin-top: -200px;
+}
+
+.sponsor-wrap{
+	color: #333;
+	h2{
+		font-size: 3.3em;
+		font-weight: normal;
+		margin-top: 0px;
+		margin-bottom: 60px;
+	}
+	.colmun{
+		float: left;
+	}
+	.sponsor-area{
+		.sponsor-contents{
+			padding-left: 0;
+			padding-top: 120px;
+			margin-bottom: 30px;
+			background-position: top center;
+			-webkit-background-size: 110px;
+			     -o-background-size: 110px;
+			        background-size: 110px;
+			border-left: none;
+			.colmun{
+				margin-left: 0;
+				text-align: center;
+				img{
+					max-height: 100%;
+					display: inline-block;
+				}
+			}
+			.colmun-row{
+				float: right;
+				width: 100%;
+				.colmun{
+					margin-left: 1%;
+					margin-bottom: 20px;
+					img{
+						max-height: 100%;
+						display: inline-block;
+					}
+				}
+			}
+			// flag
+			.sponsor-flag{
+				width: 95%;
+				height: auto;
+				padding: 10px;
+				line-height: 1.7em;
+				text-align: center;
+				float: none;
+				margin-top: 0;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			// colmun width
+			&.platinum{
+				.sponsor-flag{
+				}
+				.colmun{
+					width: 95%;
+					max-height: 160px;
+				}
+			}
+			&.gold{
+				.sponsor-flag{
+				}
+				.colmun{
+					width: 48%;
+
+					max-height: 150px;
+				}
+			}
+			&.silver{
+				.sponsor-flag{
+				}
+				.colmun{
+					width: 32%;
+					max-height: 100px;
+				}
+			}
+			&.backup{
+				.sponsor-flag{
+				}
+				.colmun{
+					width: 32%;
+					max-height: 100px;
+				}
+			}
+		}
+	}
+}

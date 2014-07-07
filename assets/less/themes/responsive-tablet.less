@@ -1,0 +1,112 @@
+/**
+ * ==============================
+ * For Tablet Less FIle
+ * ==============================
+ */
+#wpadminbar{
+	display: none;
+}
+html{
+	margin-top: 0!important;
+}
+
+/**
+ * Header Settings
+ */
+.header{
+  padding-top: 0;
+
+  /**
+   * Subpage Header
+   */
+	&.header-minimal{
+		overflow: visible;
+		z-index: 200;
+		.nav-area{
+			position: fixed;
+			left: 0;
+			background: rgba(60,182,196,0.7);
+			top: 0;
+			width: 100%;
+			z-index: 200;
+		  /**
+		   * Social Button
+		   */
+		  .social-area{
+		    float: none;
+		    margin-top: 0.5em;
+		    margin-bottom: 0.5em;
+		    text-align: center !important;
+		    .sns-button{
+		      margin-left: 20px;
+		    }
+		  }
+		  .collapse{
+		  	&.navbar-collapse{
+		  		margin-bottom: 0.5em;
+		  	}
+		  }
+		  /**
+		   * navbar
+		   */
+			ul{
+				li{
+					background-image: none;
+					&.btn{
+						margin-left: 0;
+					}
+					a{
+						background-image: none;
+					}
+				}
+			}
+		}
+		.logo-area{
+			margin-bottom: 40px;
+		}
+	}
+
+
+  /**
+   * Header Background Position
+   */
+  &:after{
+    height: 42px;
+    -webkit-background-size: 100% auto;
+         -o-background-size: 100% auto;
+            background-size: 100% auto;
+  }
+
+}
+.bg_audience{
+  background:none;
+}
+.header nav {
+  margin-bottom: 2em;
+}
+.header nav,
+.header .social-share{
+  float:none;
+  text-align: center;
+}
+#main_area {
+  text-align: center;
+}
+
+/**
+ * Schedule Area
+ */
+#schedule {
+	margin-top: 60px;
+  section{
+    background: url(../img/flow.gif) no-repeat center bottom;
+  }
+}
+
+/**
+ * Home Background
+ */
+#canvas{
+  margin-top: 0px;
+  margin-left: -822px;
+}

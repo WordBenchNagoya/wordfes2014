@@ -1,0 +1,169 @@
+/**
+ * ==============================
+ * Subpage Less File
+ * ==============================
+ */
+
+.wrap{
+	background: #d5c895;
+}
+
+/**
+ * Page Title Area
+ */
+.page-title-area{
+	background: #B1C864;
+	padding-bottom: 30px;
+	/**
+   * Main Page Title
+   */
+	.page-title{
+		padding-bottom: 0px;
+		margin-bottom: 0;
+		font-weight: normal;
+		font-size: 46px;
+	}
+
+  /**
+   * Sub Page Title
+   */
+	.page-sub-title{
+		font-size: 12px;
+	}
+
+}
+
+/**
+ * Post Contents
+ */
+
+.post-contents{
+	color: #333333;
+	font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro',Meiryo,'メイリオ', Osaka, 'ＭＳ Ｐゴシック','MS P Gothic', sans-serif ;
+	// サムネイル画像
+	.post-thumbnail{
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+	.main-block{
+		background: #FFF;
+		margin-top: 20px;
+		padding: 20px;
+		margin-bottom: 40px;
+	}
+  /**
+   * Overwrite Headding Tag
+   */
+	// h1,h2,h3,h4,h5,h6{
+	// 	color: #000;
+	// 	font-weight: normal;
+	// }
+	h2,h3,h4,h5,h6{
+		margin-top: 10px;
+	}
+
+  /**
+   * Contents Sub Headding
+   */
+	.sub-title01{
+		font-size: 1.8em;
+		background: url(../img/subpage/headlineicon.gif) no-repeat;
+		background-position: left top;
+		padding-top: 35px;
+		padding-bottom: 10px;
+		margin-top: -30px;
+		padding-left: 60px;
+		font-weight: bold;
+	}
+
+  /**
+   * Overwrite Headding Tag
+   */
+	.sub-title02{
+		font-size: 18px;
+		background: #EBEBEB;
+		-webkit-border-radius: 5px;
+		        border-radius: 5px;
+		line-height: 2.8em;
+		padding-left: 30px;
+		position: relative;
+		&:after{
+			content: "";
+			width: 5px;
+			height: 21px;
+			display: block;
+			background: #3cb6c4;
+			position: absolute;
+			top: 15px;
+			left: 0;
+		}
+	}
+
+  /**
+   * Overwrite Headding Tag
+   */
+  .sub-title03,
+	h3.sub-title{
+		font-size: 18px;
+		padding-bottom: 10px;
+		border-bottom: 1px solid #AAA;
+	}
+	ul{
+		> li{
+			background: url(../img/subpage/listicon.gif) no-repeat;
+			padding-left: 20px;
+			line-height: 2em;
+			background-position: left center;
+		}
+	}
+
+	.article-block{
+		margin-bottom: 2em;
+	}
+}
+
+/**
+ * BreadCrumbs
+ */
+.breadcrumbs{
+	margin-top: 20px;
+	font-size: 12px;
+	> span:first-child{
+		margin-left: 0;
+	}
+	> span{
+		display: inline-block;
+		margin-right: 5px;
+		margin-left: 5px;
+	}
+	a{
+		color: #FFF;
+		text-decoration: underline;
+	}
+}
+
+/**
+ * Background Color
+ */
+.background-color{
+	padding-top: 29px;
+	padding-bottom: 43px;
+	&.beige{
+		background: #EEE3BD;
+	}
+	&.dark-brown{
+		background: #A38873;
+	}
+	&.sliver{
+		background: #dddddd;
+	}
+	&.white{
+		background: #FFF;
+	}
+}
+.section--title{
+	&.inverse--title{
+		color: #1e1e1e;
+	}
+}
+

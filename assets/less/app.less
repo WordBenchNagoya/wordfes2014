@@ -1,0 +1,72 @@
+/*!
+ * Bootstrap 3.1.1
+ */
+
+@import "bootstrap/bootstrap.less";
+
+/**
+ * Import Google Font
+ */
+
+@import url("http://fonts.googleapis.com/css?family=Quicksand:300,400,700");
+
+/**
+ * Theme Include
+ */
+
+// @import "themes/animo.less";
+@import "themes/base.less";
+@import "themes/header.less";
+@import "themes/footer.less";
+
+// Home Template
+@import "themes/home.less";
+@import "themes/subpage.less";
+@import "themes/sidebar.less";
+@import "themes/entry.less";
+@import "themes/modules.less";
+
+// WordPress Default Style
+@import "themes/wordpress.less";
+
+
+/**
+ * For Tablet Setting
+ *
+ * "themes/responsive-tablet.less"
+ */
+
+@media (max-width: 1199px) {
+	.text-center.time{
+		min-height: 140px;
+	}
+	.header.header-minimal {
+		min-height: 168px;
+	}
+	.social-area{
+		margin-bottom: 2em;
+		text-align: left !important;
+		float: none;
+		height: 30px;
+		.sns-button{
+			width: auto !important;
+			display: inline-block !important;
+			margin-left: 20px;
+		}
+	}
+	#main_area #livestage .slider .slider-image{
+		max-width: 328px;
+	}
+}
+@media (max-width: 1024px) {
+	@import "themes/responsive-tablet.less";
+}
+
+/**
+ * For Smartphone Setting
+ *
+ * "themes/responsive-smartphone.less"
+ */
+@media (max-width: 555px) {
+	@import "themes/responsive-smartphone.less";
+}
