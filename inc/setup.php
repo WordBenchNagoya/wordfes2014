@@ -175,27 +175,27 @@ function show_template() {
  * @return [type]       [description]
  */
 
-add_action( 'template_redirect', 'protect_entry_form', 10 );
+// add_action( 'template_redirect', 'protect_entry_form', 10 );
 
-function protect_entry_form(  ){
+// function protect_entry_form(  ){
 
-  global $post, $wp_query;
+//   global $post, $wp_query;
 
-  if ( is_page( 'entry' )
-       && ! is_user_logged_in() ) {
+//   if ( is_page( 'entry' )
+//        && ! is_user_logged_in() ) {
 
-    if ( 'true' !== $_GET['staff'] &&
-         ! $_GET['tix_action'] ) {
+//     if ( 'true' !== $_GET['staff'] &&
+//          ! $_GET['tix_action'] ) {
 
-      wp_redirect( site_url() , $status = 302 );
+//       wp_redirect( site_url() , $status = 302 );
 
-    }
+//     }
 
-  }
+//   }
 
-  return false;
+//   return false;
 
-}
+// }
 
 /**
  * Print page css
@@ -217,6 +217,11 @@ function print_page_css(){
 
 }
 
+/**
+ * Replace Defautl Gallery
+ *
+ * @return string $output : HTML of Gallery
+ */
 add_filter( 'post_gallery', 'wordfes2014_gallery_shortcode_filter', 0, 2 );
 function wordfes2014_gallery_shortcode_filter( $empty, $attr ) {
 
@@ -357,4 +362,40 @@ function wordfes2014_gallery_shortcode_filter( $empty, $attr ) {
     </div>\n";
 
   return $output;
+}
+
+/**
+ * include sponsor module
+ * @return void
+ */
+
+add_action( 'get_footer', 'include_sponsor_module', 10, 1 );
+
+function include_sponsor_module(){
+	// if ( is_user_logged_in() ) {
+	include get_stylesheet_directory() . '/modules/sponsor.php';
+	// }
+}
+
+
+/**
+ * change wp pagenavi style
+ */
+
+add_filter( 'wp_pagenavi', 'wordfes2014_bootstrap_pagination', 10, 2 );
+
+function wordfes2014_bootstrap_pagination( $html ){
+	$out = '';
+
+	//wrap a's and span's in li's
+	$out = str_replace( '<div' , '' , $html );
+	$out = str_replace( "class='wp-pagenavi'>" , '' , $out );
+	$out = str_replace( '<a', '<li><a' , $out );
+	$out = str_replace( '</a>' , '</a></li>' , $out );
+	$out = str_replace( '<span' , '<li><span' ,$out );
+	$out = str_replace( '</span>' , '</span></li>' , $out );
+	$out = str_replace( '</div>' , '' , $out );
+
+	return '<div class=" pagination-centered"><ul class="pagination primary-color">' . $out . '</ul></div>';
+
 }

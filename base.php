@@ -5,7 +5,7 @@
  * =====================================================
  * @package    Wordfes2014
  * @author     WordBench Nagoya
- * @license    http://opensource.org/licenses/MIT
+ * @license    GPL v2 or later
  * @link       http://2014.wordfes.org
  * @copyright  2014 WordBench Nagoya
  * =====================================================
@@ -25,7 +25,7 @@ do_action( 'get_header' )?>
 	dynamic_sidebar( 'main-visual-primary' ); ?>
 
 	<div class="container">
-		<main class="main <?php wordfes2014_main_class(); ?>">
+		<main id="main-column" class="main <?php wordfes2014_main_class(); ?>">
 			<?php
 			// Content Primary widget area
 			dynamic_sidebar( 'content-primary' );
@@ -39,7 +39,7 @@ do_action( 'get_header' )?>
 		if ( wordfes2014_display_sidebar() ) :
 		?>
 
-		<aside class="sidebar col-lg-3 col-md-3 col-sm-12 col-xs-12">
+		<aside id="aside-column" class="sidebar col-lg-3 col-md-3 col-sm-12 col-xs-12">
 			<?php
 			// Include "modules/sidebar.php"
 			get_template_part( 'modules/sidebar' );

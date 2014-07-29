@@ -4,7 +4,7 @@
  * =====================================================
  * @package    Wordfes2014
  * @author     WordBench Nagoya
- * @license    http://opensource.org/licenses/MIT
+ * @license    GPL v2 or later
  * @link       http://2014.wordfes.org
  * @copyright  2014 WordBench Nagoya
  * =====================================================
@@ -16,60 +16,25 @@
 
 		<?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<h1 class="page-title">
-					<?php
-						if ( is_category() ) :
-							single_cat_title();
+			<h2 class="page-title sub-title01">
+				<?php
 
-						elseif ( is_tag() ) :
-							single_tag_title();
+				if ( is_taxonomy_hierarchical( 'topics_category' ) ) {
 
-						elseif ( is_author() ) :
-							printf( __( 'Author: %s', 'wordfes2014' ), '<span class="vcard">' . get_the_author() . '</span>' );
+					single_cat_title();
 
-						elseif ( is_day() ) :
-							printf( __( 'Day: %s', 'wordfes2014' ), '<span>' . get_the_date() . '</span>' );
+				} else if ( is_post_type_archive( 'topics' ) ) {
 
-						elseif ( is_month() ) :
-							printf( __( 'Month: %s', 'wordfes2014' ), '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'wordfes2014' ) ) . '</span>' );
+					echo 'お知らせ一覧';
 
-						elseif ( is_year() ) :
-							printf( __( 'Year: %s', 'wordfes2014' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'wordfes2014' ) ) . '</span>' );
+				} else if ( is_archive()  ) {
 
-						elseif ( is_tax( 'post_format', 'post-format-aside' ) ) :
-							_e( 'Asides', 'wordfes2014' );
+					echo 'スタッフブログ';
 
-						elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) :
-							_e( 'Galleries', 'wordfes2014');
+				}
 
-						elseif ( is_tax( 'post_format', 'post-format-image' ) ) :
-							_e( 'Images', 'wordfes2014');
-
-						elseif ( is_tax( 'post_format', 'post-format-video' ) ) :
-							_e( 'Videos', 'wordfes2014' );
-
-						elseif ( is_tax( 'post_format', 'post-format-quote' ) ) :
-							_e( 'Quotes', 'wordfes2014' );
-
-						elseif ( is_tax( 'post_format', 'post-format-link' ) ) :
-							_e( 'Links', 'wordfes2014' );
-
-						elseif ( is_tax( 'post_format', 'post-format-status' ) ) :
-							_e( 'Statuses', 'wordfes2014' );
-
-						elseif ( is_tax( 'post_format', 'post-format-audio' ) ) :
-							_e( 'Audios', 'wordfes2014' );
-
-						elseif ( is_tax( 'post_format', 'post-format-chat' ) ) :
-							_e( 'Chats', 'wordfes2014' );
-
-						else :
-							_e( 'Archives', 'wordfes2014' );
-
-						endif;
-					?>
-				</h1>
+				?>
+			</h2>
 				<?php
 					// Show an optional term description.
 					$term_description = term_description();
@@ -77,7 +42,6 @@
 						printf( '<div class="taxonomy-description">%s</div>', $term_description );
 					endif;
 				?>
-			</header><!-- .page-header -->
 
 			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
@@ -87,12 +51,12 @@
 					 * If you want to override this in a child theme, then include a file
 					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 					 */
-					get_template_part( 'templates/content', get_post_format() );
+					get_template_part( 'templates/content-list' );
 				?>
 
 			<?php endwhile; ?>
 
-			<?php wordfes2014_paging_nav(); ?>
+			<?php //wordfes2014_paging_nav(); ?>
 
 		<?php else : ?>
 
@@ -100,5 +64,12 @@
 
 		<?php endif; ?>
 
+			<nav class="text-center">
+			<?php
+			// wp_pagenavi
+			if ( function_exists( 'wp_pagenavi' ) ) {
+				wp_pagenavi();
+			} ?>
+			</nav>
 		</main><!-- #main -->
 	</section><!-- #primary -->

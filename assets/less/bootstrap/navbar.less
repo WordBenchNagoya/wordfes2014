@@ -177,17 +177,18 @@
 // JavaScript plugin.
 
 .navbar-toggle {
-  position: fixed;
-  float: right;
-  z-index: 10000;
-  top: 10px;
-  right: 10px;
-  margin-right: @navbar-padding-horizontal;
-  padding: 9px 10px;
-  .navbar-vertical-align(34px);
-  background-color: rgba( 0,0,0,0.8 );
-  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-  border: 1px solid transparent;
+	position: fixed;
+	float: right;
+	z-index: 10000;
+	top: 11px;
+	right: 5px;
+	margin-right: 5px;
+	padding: 5px 5px;
+	margin-top: -1px;
+	margin-bottom: 8px;
+	background-color: rgba(0,0,0,0.6);
+	background-image: none;
+	border: 1px solid transparent;
   // border-radius: @border-radius-base;
 
   // We remove the `outline` here, but later compensate by attaching `:hover`
@@ -231,8 +232,8 @@
   	&:last-child{
   			// margin-top: px;
   		a{
-  			padding-top: 2px;
-	  		padding-bottom: 2px;
+  			// padding-top: 2px;
+	  		// padding-bottom: 2px;
 	  	}
   	}
   }
@@ -626,3 +627,5 @@
   }
 
 }
+
+

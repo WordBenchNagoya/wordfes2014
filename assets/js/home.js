@@ -61,7 +61,6 @@ this.createjs=this.createjs||{},function(){"use strict";var a=createjs.PreloadJS
 /**
  * Top Teather
  */
-
 (function (lib, img, cjs) {
 
 var p; // shortcut to reference prototypes
@@ -87,118 +86,12 @@ lib.properties = {
 	]
 };
 
-// stage content:
-(lib.balloon = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{});
-
-	// shower2.gif
-	this.instance = new lib.tween14("synched",0);
-	this.instance.setTransform(1579,632.9);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance).to({startPosition:0},688).to({y:582.9},254).wait(1));
-
-	// shower.gif
-	this.instance_1 = new lib.tween14("synched",0);
-	this.instance_1.setTransform(549,632.9);
-	this.instance_1._off = true;
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(70).to({_off:false},0).to({startPosition:0},618).to({startPosition:0},254).wait(1));
-
-	// audience2.png
-	this.instance_2 = new lib.audience2();
-	this.instance_2.setTransform(292.9,479.9);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_2).wait(943));
-
-	// forest.png
-	this.instance_3 = new lib.forest();
-	this.instance_3.setTransform(1969.5,430);
-
-	this.instance_4 = new lib.forest();
-	this.instance_4.setTransform(984.5,430);
-
-	this.instance_5 = new lib.forest();
-	this.instance_5.setTransform(-0.5,429.9);
-
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_5},{t:this.instance_4},{t:this.instance_3}]}).to({state:[{t:this.instance_5},{t:this.instance_4},{t:this.instance_3}]},688).to({state:[{t:this.instance_5},{t:this.instance_4},{t:this.instance_3}]},254).wait(1));
-
-	// nitech.png
-	this.instance_6 = new lib.nitech();
-	this.instance_6.setTransform(1405.1,319);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_6).wait(943));
-
-	// balloon01.png
-	this.instance_7 = new lib.tween09("synched",0);
-	this.instance_7.setTransform(973,482);
-	this.instance_7._off = true;
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_7).wait(72).to({_off:false},0).to({startPosition:0},722).to({_off:true},1).wait(148));
-
-	// balloon02.png
-	this.instance_8 = new lib.tween11("synched",0);
-	this.instance_8.setTransform(1890.9,437);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_8).to({startPosition:0},794).to({_off:true},1).wait(148));
-
-	// balloon03.png
-	this.instance_9 = new lib.tween09("synched",0);
-	this.instance_9.setTransform(134,705);
-	this.instance_9._off = true;
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_9).wait(130).to({_off:false},0).to({startPosition:0},758).to({_off:true},1).wait(54));
-
-	// balloon04.png
-	this.instance_10 = new lib.tween11("synched",0);
-	this.instance_10.setTransform(1089.9,684);
-	this.instance_10._off = true;
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_10).wait(72).to({_off:false},0).to({startPosition:0},722).to({_off:true},1).wait(148));
-
-	// balloon05.png
-	this.instance_11 = new lib.tween09("synched",0);
-	this.instance_11.setTransform(604,630.9);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_11).to({x:134.5,y:704.9,alpha:0,startPosition:103},875).to({startPosition:170},67).wait(1));
-
-	// balloon06.png
-	this.instance_12 = new lib.tween09("synched",0);
-	this.instance_12.setTransform(1694,630.9);
-	this.instance_12._off = true;
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_12).wait(72).to({_off:false},0).to({x:134,y:705,alpha:0,startPosition:47},870).wait(1));
-
-	// cloud03.png
-	this.instance_13 = new lib.tween13("synched",0);
-	this.instance_13.setTransform(3230.9,512.9);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_13).to({_off:true},794).wait(149));
-
-	// cloud01.png
-	this.instance_14 = new lib.tween13("synched",0);
-	this.instance_14.setTransform(2170.9,512.9);
-	this.instance_14._off = true;
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_14).wait(30).to({_off:false},0).to({_off:true},764).wait(149));
-
-	// cloud04.png
-	this.instance_15 = new lib.tween13("synched",0);
-	this.instance_15.setTransform(1362,497.9);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_15).to({startPosition:133},133).to({_off:true},618).wait(192));
-
-	// cloud02.png
-	this.instance_16 = new lib.tween13("synched",0);
-	this.instance_16.setTransform(1008.5,357);
-	this.instance_16._off = true;
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_16).wait(52).to({_off:false},0).to({_off:true},742).wait(149));
-
-}).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(740.1,-223,3968.3,1507.2);
 
 
 // symbols:
+
+
+
 (lib.audience2 = function() {
 	this.initialize(img.audience2);
 }).prototype = p = new cjs.Bitmap();
@@ -265,6 +158,42 @@ p.nominalBounds = new cjs.Rectangle(0,0,230,400);
 p.nominalBounds = new cjs.Rectangle(0,0,985,430);
 
 
+(lib.トゥイーン4 = function() {
+	this.initialize();
+
+	// レイヤー 1
+	this.instance = new lib.audience2();
+	this.instance.setTransform(-675,-125);
+
+	this.addChild(this.instance);
+}).prototype = p = new cjs.Container();
+p.nominalBounds = new cjs.Rectangle(-675,-125,1350,250);
+
+
+(lib.トゥイーン3 = function() {
+	this.initialize();
+
+	// レイヤー 1
+	this.instance = new lib.audience2();
+	this.instance.setTransform(-675,-125);
+
+	this.addChild(this.instance);
+}).prototype = p = new cjs.Container();
+p.nominalBounds = new cjs.Rectangle(-675,-125,1350,250);
+
+
+(lib.トゥイーン2 = function() {
+	this.initialize();
+
+	// レイヤー 1
+	this.instance = new lib.audience2();
+	this.instance.setTransform(-675,-125);
+
+	this.addChild(this.instance);
+}).prototype = p = new cjs.Container();
+p.nominalBounds = new cjs.Rectangle(-675,-125,1350,250);
+
+
 (lib.tween15 = function() {
 	this.initialize();
 
@@ -312,6 +241,17 @@ p.nominalBounds = new cjs.Rectangle(-350,-225,700,450);
 p.nominalBounds = new cjs.Rectangle(0,0,985,600);
 
 
+(lib.トゥイーン1 = function() {
+	this.initialize();
+
+	// レイヤー 1
+	this.instance = new lib.トゥイーン4("synched",0);
+
+	this.addChild(this.instance);
+}).prototype = p = new cjs.Container();
+p.nominalBounds = new cjs.Rectangle(-675,-125,1350,250);
+
+
 (lib.tween14 = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
@@ -322,7 +262,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,985,600);
 	this.timeline.addTween(cjs.Tween.get(this.instance).to({x:55,y:-4,alpha:1},97).to({x:108,y:4,alpha:0},149).to({_off:true},26).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(-492.5,-218.9,1039.5,434);
+p.nominalBounds = new cjs.Rectangle(-492.5,-215,985,430);
 
 
 (lib.tween13 = function(mode,startPosition,loop) {
@@ -333,7 +273,7 @@ p.nominalBounds = new cjs.Rectangle(-492.5,-218.9,1039.5,434);
 	this.instance.setTransform(-5,-20,1,1,0,0,0,492.5,300);
 	this.instance.alpha = 0;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).to({x:-450.7,alpha:1},148).to({x:-2273.2,alpha:0.961},567).to({x:-2405,alpha:0},41).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance).to({x:-95.4,alpha:1},111).to({x:-528.9},532).to({x:-621,alpha:0},113).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(-497.5,-320,985,600);
@@ -349,7 +289,7 @@ p.nominalBounds = new cjs.Rectangle(-497.5,-320,985,600);
 	this.timeline.addTween(cjs.Tween.get(this.instance).to({x:13.6,y:-64.9,alpha:1},18).to({x:165,y:-790},371).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(-350,-286.3,712.8,511.4);
+p.nominalBounds = new cjs.Rectangle(-350,-225,700,450);
 
 
 (lib.tween09 = function(mode,startPosition,loop) {
@@ -360,13 +300,140 @@ p.nominalBounds = new cjs.Rectangle(-350,-286.3,712.8,511.4);
 	this.instance.setTransform(-27,8);
 	this.instance.alpha = 0;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).to({x:-27.3,y:-25.9,alpha:1},17).to({x:-34.8,y:-192.7,alpha:0.723},83).to({x:-42,y:-421.4,alpha:0.836},115).to({x:-34,y:-760.9,alpha:1},170).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance).to({x:-27.3,y:-25.9,alpha:1},17).to({x:-34.8,y:-192.7,alpha:0.719},83).to({x:-39.2,y:-331.9,alpha:0.793},70).to({x:-42,y:-421.4,alpha:0.84},45).to({x:-41.4,y:-447.3,alpha:0.852},13).to({x:-34,y:-760.9,alpha:1},157).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(-377.3,-248.9,700.3,482);
+p.nominalBounds = new cjs.Rectangle(-377,-217,700,450);
+
+
+// stage content:
+
+
+
+(lib.balloon = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// shower2.gif
+	this.instance = new lib.tween14("synched",0);
+	this.instance.setTransform(1579,632.9);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).to({startPosition:0},688).to({startPosition:0},515).to({y:582.9,alpha:0},197).wait(1));
+
+	// shower.gif
+	this.instance_1 = new lib.tween14("synched",0);
+	this.instance_1.setTransform(549,632.9);
+	this.instance_1._off = true;
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(70).to({_off:false},0).to({startPosition:0},618).to({startPosition:0},515).to({alpha:0},197).wait(1));
+
+	// audience2.png
+	this.instance_2 = new lib.トゥイーン1("synched",0);
+	this.instance_2.setTransform(967.9,604.9);
+
+	this.instance_3 = new lib.トゥイーン2("synched",0);
+	this.instance_3.setTransform(967.9,604.9);
+
+	this.instance_4 = new lib.トゥイーン3("synched",0);
+	this.instance_4.setTransform(967.9,604.9);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_2}]}).to({state:[{t:this.instance_3}]},688).to({state:[{t:this.instance_3}]},515).to({state:[{t:this.instance_4}]},197).wait(1));
+
+	// forest.png
+	this.instance_5 = new lib.forest();
+	this.instance_5.setTransform(1969.5,430);
+
+	this.instance_6 = new lib.forest();
+	this.instance_6.setTransform(984.5,430);
+
+	this.instance_7 = new lib.forest();
+	this.instance_7.setTransform(-0.5,429.9);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_7},{t:this.instance_6},{t:this.instance_5}]}).to({state:[{t:this.instance_7},{t:this.instance_6},{t:this.instance_5}]},688).to({state:[{t:this.instance_7},{t:this.instance_6},{t:this.instance_5}]},515).to({state:[{t:this.instance_7},{t:this.instance_6},{t:this.instance_5}]},197).wait(1));
+
+	// nitech.png
+	this.instance_8 = new lib.nitech();
+	this.instance_8.setTransform(1405.1,319);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_8).wait(1401));
+
+	// balloon01.png
+	this.instance_9 = new lib.tween09("synched",0);
+	this.instance_9.setTransform(973,482);
+	this.instance_9._off = true;
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_9).wait(72).to({_off:false},0).to({startPosition:0},1131).to({startPosition:0},49).to({alpha:0,startPosition:148},148).wait(1));
+
+	// balloon02.png
+	this.instance_10 = new lib.tween11("synched",0);
+	this.instance_10.setTransform(1890.9,437);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_10).to({startPosition:0},1203).to({startPosition:0},49).to({alpha:0,startPosition:148},148).wait(1));
+
+	// balloon03.png
+	this.instance_11 = new lib.tween09("synched",0);
+	this.instance_11.setTransform(134,705);
+	this.instance_11._off = true;
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_11).wait(130).to({_off:false},0).to({startPosition:0},1073).to({startPosition:0},143).to({alpha:0,startPosition:54},54).wait(1));
+
+	// balloon04.png
+	this.instance_12 = new lib.tween11("synched",0);
+	this.instance_12.setTransform(1089.9,684);
+	this.instance_12._off = true;
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_12).wait(72).to({_off:false},0).to({startPosition:0},1131).to({startPosition:0},49).to({alpha:0,startPosition:148},148).wait(1));
+
+	// balloon05.png
+	this.instance_13 = new lib.tween09("synched",0);
+	this.instance_13.setTransform(604,630.9);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_13).to({startPosition:0},1203).to({x:134.5,y:704.9,alpha:0,startPosition:103},130).to({startPosition:170},67).wait(1));
+
+	// balloon06.png
+	this.instance_14 = new lib.tween09("synched",0);
+	this.instance_14.setTransform(1694,630.9);
+	this.instance_14._off = true;
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_14).wait(72).to({_off:false},0).to({startPosition:0},1131).to({x:134,y:705,alpha:0,startPosition:47},197).wait(1));
+
+	// cloud05.png
+	this.instance_15 = new lib.tween13("synched",0);
+	this.instance_15.setTransform(2088.9,320);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_15).to({alpha:0.73,startPosition:564},1321).to({alpha:0,startPosition:643},79).wait(1));
+
+	// cloud03.png
+	this.instance_16 = new lib.tween13("synched",0);
+	this.instance_16.setTransform(3230.9,512.9);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_16).to({alpha:0},1400).wait(1));
+
+	// cloud01.png
+	this.instance_17 = new lib.tween13("synched",0);
+	this.instance_17.setTransform(2170.9,512.9);
+	this.instance_17._off = true;
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_17).wait(30).to({_off:false},0).to({alpha:0.641,startPosition:505},1262).to({alpha:0,startPosition:613},108).wait(1));
+
+	// cloud04.png
+	this.instance_18 = new lib.tween13("synched",0);
+	this.instance_18.setTransform(1362,497.9);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_18).to({startPosition:133},133).to({alpha:0.941,startPosition:564},1188).to({alpha:0,startPosition:643},79).wait(1));
+
+	// cloud02.png
+	this.instance_19 = new lib.tween13("synched",0);
+	this.instance_19.setTransform(1008.5,357);
+	this.instance_19._off = true;
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_19).wait(52).to({_off:false},0).to({alpha:0,startPosition:591},1348).wait(1));
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(989.5,355,3719,863.9);
 
 })(lib = lib||{}, images = images||{}, createjs = createjs||{});
 var lib, images, createjs;
+
 var canvas, stage, exportRoot;
 
 function init() {

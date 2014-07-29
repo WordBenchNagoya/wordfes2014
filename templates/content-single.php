@@ -4,7 +4,7 @@
  * =====================================================
  * @package    Wordfes2014
  * @author     WordBench Nagoya
- * @license    http://opensource.org/licenses/MIT
+ * @license    GPL v2 or later
  * @link       http://2014.wordfes.org
  * @copyright  2014 WordBench Nagoya
  * =====================================================
@@ -13,14 +13,14 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'main-block' ); ?>>
 
 	<header class="entry-header">
-		<?php the_title( '<h1 class="sub-title01 entry-title">', '</h1>' ); ?>
-
-		<div class="entry-meta">
-			<?php wordfes2014_posted_on(); ?>
-		</div><!-- .entry-meta -->
+		<h1 class="sub-title01 entry-title">
+			<time class="title-date"><?php echo get_the_date( 'Y-m-d' ); ?></time>
+			<?php the_title(); ?>
+		</h1>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
+		<?php do_shortcode( '' ); ?>
 		<?php the_content(); ?>
 		<?php
 			wp_link_pages( array(
@@ -43,7 +43,7 @@
 				if ( '' != $tag_list ) {
 					$meta_text = __( 'This entry was tagged %2$s. Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', 'wordfes2014' );
 				} else {
-					$meta_text = __( 'Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', 'wordfes2014' );
+					// $meta_text = __( 'Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', 'wordfes2014' );
 				}
 
 			} else {
@@ -61,9 +61,16 @@
 				$category_list,
 				$tag_list,
 				get_permalink()
-			);
-		?>
+			); ?>
 
-		<?php edit_post_link( __( 'Edit', 'wordfes2014' ), '<span class="edit-link">', '</span>' ); ?>
+			<?php wordfes2014_post_nav(); ?>
+
+		<?php
+		if ( is_user_logged_in() ) { ?>
+			<hr>
+			<?php edit_post_link( __( 'この記事を編集', 'wordfes2014' ), '<span class="edit-link btn-default btn">', '</span>' ); ?>
+		<?php
+		}
+		?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

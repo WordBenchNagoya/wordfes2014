@@ -25,7 +25,7 @@ endwhile; ?>
 <?php
 while ( has_sub_field( 'contents2' ) ) : ?>
 			<h4><?php echo esc_html( get_sub_field( 'sub-title' ) ); ?></h4>
-			<p><?php echo wp_kses_post( get_sub_field( 'text' ) ); ?></p>
+			<p><?php echo get_sub_field( 'text' ); ?></p>
 <?php
 endwhile; ?>
 	</div>

@@ -12,9 +12,19 @@
  * =====================================================
  */
 
+/**
+ * Main template path
+ * @return string
+ */
+
 function wordfes2014_template_path() {
 	return Wordfes2014_Wrapping::$main_template;
 }
+
+/**
+ * Base template path
+ * @return string
+ */
 
 function wordfes2014_template_base() {
 	return Wordfes2014_Wrapping::$base;

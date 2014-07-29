@@ -26,6 +26,7 @@
 	ga('send', 'pageview');
 	</script>
 	<!-- /GA -->
+	<!-- Facebook -->
 	<div id="fb-root"></div>
 	<script>(function(d, s, id) {
 		var js, fjs = d.getElementsByTagName(s)[0];
@@ -34,11 +35,10 @@
 		js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=646556028772013&version=v2.0";
 		fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
+	<!-- Twiiter -->
 	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 	<?php wp_footer(); ?>
-<script type='text/javascript'>//<![CDATA[
-document.write("<script async src='//HOST:3000/browser-sync-client.1.1.2.js'><\/script>".replace(/HOST/g, location.hostname));//]]></script>
-	</body>
+</body>
 </html>
 
 

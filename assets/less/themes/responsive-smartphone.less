@@ -7,17 +7,18 @@
  * Flag Setting
  */
 body{
-	padding-top: 40px;
 	&:before{
-		width: 83px;
-		height: 49px;
+		width: 113px;
+    height: 79px;
+		top: 40px;
 		-webkit-background-size: 100% auto;
 		     -o-background-size: 100% auto;
 		        background-size: 100% auto;
 	}
 	&:after{
-		width: 83px;
-		height: 49px;
+		width: 113px;
+		height: 79px;
+		top: 40px;
 		-webkit-background-size: 100% auto;
 		     -o-background-size: 100% auto;
 		        background-size: 100% auto;
@@ -31,10 +32,9 @@ body{
  */
 .header{
 	padding-top: 0;
-	padding-bottom: 10px;
+	padding-bottom: 0px;
 	top: 0;
 	position: fixed;
-	background: rgba(60,182,196,0.7);
 	overflow: hidden;
 	width: 100%;
 	&.header-minimal{
@@ -42,43 +42,55 @@ body{
 		z-index: 200;
 		.nav-area{
 			position: fixed;
-			background: rgba(60,182,196,0.7);
+			background: #1f558e;
 			top: 0;
+      padding-bottom: 0.3em;
 			z-index: 200;
+			/**
+			 * Header Social Icon
+			 */
+			.social-area{
+				margin-top: 12px;
+				height: 20px;
+				max-height: 20px;
+				margin-bottom: 0.5em;
+				float: left;
+			  // share btn
+				.sns-button{
+					margin-left: 21px;
+					width: 80px !important;
+					max-height: 20px;
+				}
+			}
+			.navbar-collapse{
+				ul{
+					li{
+						background-image: none;
+						a{
+							background-image: none;
+							color: #FFF;
+						}
+						&.btn.btn-warning{
+							margin-top: 10px;
+							width: 90%;
+							margin-left: auto;
+							margin-right: auto;
+              a{
+                color: #252525;
+              }
+						}
+					}
+				}
+			}
 		}
 		.logo-area{
 			margin-top: 60px;
 		}
 	}
-	/**
-	 * Header Social Icon
-	 */
-	.social-area{
-		margin-top: 20px;
-		height: 20px;
-		max-height: 20px;
-		float: left;
-	  // share btn
-		.sns-button{
-			margin-left: 21px;
-			width: 80px !important;
-			max-height: 20px;
-		}
-	}
-	.navbar-collapse{
-		ul{
-			li{
-				background-image: none;
-				a{
-					background-image: none;
-				}
-				&.btn.btn-warning{
-					margin-left: 0;
-				}
-			}
-		}
-	}
+
 }
+
+
 
 /**
  * Overwrite Grid System padding & margin
@@ -105,65 +117,25 @@ body{
 		}
 	}
 }
-/**
- * Live Stage
- */
-#livestage {
-
-	position: inherit;
-	min-height: inherit;
-	// background: none;
-	background-size: 100%;
-  // span
-	span{
-		// display: none;
-	}
-  // slider
-	.slider {
-		position: inherit;
-		margin-top:0;
-		margin-left:0;
-		p{
-			img{
-				height: auto;
-			}
-		}
-	}
-}
 
 
-
-/**
- * Schedule
- */
-#schedule section{
-	background: none;
-}
-
-/**
- * Home Background
- */
-
-#canvas{
-	margin-left: -930px;
-	margin-top: -200px;
-}
 
 .sponsor-wrap{
 	color: #333;
 	h2{
-		font-size: 3.3em;
+		font-size: 2.3em;
 		font-weight: normal;
 		margin-top: 0px;
-		margin-bottom: 60px;
+		margin-bottom: 0px;
 	}
 	.colmun{
 		float: left;
 	}
 	.sponsor-area{
+    padding-bottom: 10px;
 		.sponsor-contents{
 			padding-left: 0;
-			padding-top: 120px;
+			padding-top: 20px;
 			margin-bottom: 30px;
 			background-position: top center;
 			-webkit-background-size: 110px;
@@ -217,7 +189,7 @@ body{
 				.colmun{
 					width: 48%;
 
-					max-height: 150px;
+					max-height: 130px;
 				}
 			}
 			&.silver{
@@ -225,7 +197,8 @@ body{
 				}
 				.colmun{
 					width: 32%;
-					max-height: 100px;
+          margin-top: 20px;
+					max-height: 70px;
 				}
 			}
 			&.backup{

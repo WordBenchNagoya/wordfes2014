@@ -1,43 +1,38 @@
-# WordFes 2014 - WordPress テーマ
+## WordFes 2014 - WordPress テーマ
 
 - - - - - - - - - - -
 
 このテーマは WordFes 2014 公式サイトのために制作されたテーマです。
+
 ベースとして、 [_s](http://underscores.me/) を使用し構築しています。
 
-# カスタム投稿タイプ
+## 投稿タイプ
 
-### セッション
+inc/custom-post-type.php 内で定義
 
-* スラッグ : session
+| 投稿タイプ名   | スラッグ  |  説明                                                  |
+| :--            | :--       | :--                                                    |
+| スタッフブログ | post      | スタッフブログ用投稿タイプ                             |
+| 固定ページ     | page      | 固定ページ用                                           |
+| お知らせ       | topics    | 新着情報・お知らせ用                                   |
+| スポンサー     | sponsored | スポンサーバナー用                                     |
+| スタッフ       | staff     | スタッフ一覧ページ用                                   |
+| セッション     | session   | セッション情報用投稿タイプ。タイムテーブル一覧へも出力 |
 
-セッション情報を入力するための投稿タイプです。
+## タクソノミー
 
-タイムテーブル一覧もここから出力されます。
+inc/custom-taxonomy.php 内で定義
 
-### お知らせ
-
-* スラッグ : topics
-
-新着情報・お知らせのための投稿タイプです。
-
-
-### スポンサー
-
-* スラッグ : sponsored
-
-スポンサー登録のための投稿タイプです。
-
-各ページ下部のスポンサー一覧に表示されます。
-
-### スタッフ
-
-* スラッグ : staff
-
-スタッフ一覧ページのための投稿タイプです。
+| タクソノミー名     | スラッグ         |  投稿タイプ                                            |
+| :--                | :--              | :--                                                    |
+| スポンサーカテゴリ | sponsor_category | スポンサー                                             |
+| ターゲット         | target           | セッション                                             |
+| 教室               | classroom        | セッション                                             |
+| タイムゾーン       | timezone         | セッション                                             |
+| お知らせカテゴリ   | topics           | お知らせ                                   |
 
 
-# ファイル階層
+## ファイル概要
 
 	assets/   : 静的なコンテンツ
 		css /   : grunt によってコンパイルされた後の css
@@ -45,6 +40,7 @@
 		img /   : 画像ファイル
 		js /    : javascript ファイル
 		less /  : コンパイル前の less ファイル
+
 	classes/ : 拡張用 class ファイル
 		class-camptix-widgets.php : サイドバー用のチケット受付表
 		class-cleanup.php : テーマのための関数
@@ -58,19 +54,21 @@
 		customier.php : テーマカスタマイザーのための定義ファイル
 		extra.php : テーマから独立している関数定義
 		jetpack.php : jetpack 用関数定義
-		scripts.php : javascript , css 登録用の関数定義
+		scripts.php : javascript, css 登録用の関数定義
 		setup.php : テーマを使用するための関数定義
 		template-tags.php : ループ内で使用する関数定義
 		wrapper.php : テーマのテンプレートを変更するラッパー関数
+
 	languages/ : 言語ファイル
 	modules / : サイトのモジュール郡
 	templates/ : コンテンツ表示用のテンプレートファイル
+
 	.editorconfig : エディタの設定 [editorconfig](http://editorconfig.org/)
 	.jshintrc : jshint の設定
 	404.php : 404 テンプレート
 	archive.php : アーカイブページ テンプレート
-	base-template-teaser.php : ティザーサイト用テンプレート
-	base.php : ラッパ テンプレートです。まず始めにこのファイルを読み込みます
+	base-template-home.php : トップページ用テンプレート
+	base.php : ラッパ テンプレートです。このファイルを通して各テンプレートを読み込みます
 	functions.php : テーマのための関数
 	Gruntfile.js : Grunt 設定ファイル
 	index.php : トップページ用テンプレート
@@ -82,4 +80,3 @@
 	single.php : 投稿ページ テンプレート
 	style.css : テーマのためのスタイルシート
 
-# インストール

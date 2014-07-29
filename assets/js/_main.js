@@ -22,30 +22,31 @@
 		common: {
 			init: function () {
 
-				$( function () {
-					function facebook_photo_load() {
-						var e = "http://graph.facebook.com/v1.0/742005059173576/photos?pretty=1&limit=100";
+				// $( function () {
+				// 	function facebook_photo_load() {
+				// 		var e = "http://graph.facebook.com/v1.0/742005059173576/photos?pretty=1&limit=100";
 
-						$.ajax( {
-							url: e
-						} )
-							.done( function ( e ) {
-								var randum = Math.floor( Math.random() * 80 );
-								var target = $( "#livestage .slider img" );
-								var large_picture = e.data[ randum ].images[ 0 ].source;
-								var small_pricture = e.data[ randum ].images[ 2 ].source;
-							  target.animate({
-							    opacity: 0,
-							  }, 2000, function() {
-							    $(this).remove();
-									$( "#livestage .slider" )
-										.append( '<img src="' + large_picture + '" alt="写真 ' + randum + '" class="img-responsive slider-image" />' );
-								  });
-								setTimeout( facebook_photo_load, 6000 );
-							} )
-					}
-					facebook_photo_load();
-				} );
+				// 		$.ajax( {
+				// 			url: e
+				// 		} )
+				// 			.done( function ( e ) {
+				// 				var randum = Math.floor( Math.random() * 80 );
+				// 				var target = $( "#livestage .slider img" );
+				// 				var large_picture = e.data[ randum ].images[ 0 ].source;
+				// 				var small_pricture = e.data[ randum ].images[ 2 ].source;
+				// 			  target.animate({
+				// 			    opacity: 0,
+				// 			  }, 2000, function() {
+				// 			    $(this).remove();
+				// 					$( "#livestage .slider" )
+				// 						.append( '<img src="' + large_picture + '" alt="写真 ' + randum + '" class="img-responsive slider-image" />' );
+				// 				  });
+				// 				setTimeout( facebook_photo_load, 6000 );
+				// 			} )
+				// 	}
+				// 	facebook_photo_load();
+
+				// } );
 			}
 		},
 		// Home page

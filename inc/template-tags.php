@@ -48,20 +48,20 @@ function wordfes2014_post_nav() {
 	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
 	$next     = get_adjacent_post( false, '', false );
 
-	if ( ! $next && ! $previous ) {
+	if ( ! $next
+				 && ! $previous ) {
 		return;
 	}
-	?>
-	<nav class="navigation post-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'wordfes2014' ); ?></h1>
-		<div class="nav-links">
-			<?php
-				previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'wordfes2014' ) );
-				next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link',     'wordfes2014' ) );
-			?>
-		</div><!-- .nav-links -->
-	</nav><!-- .navigation -->
-	<?php
+		?>
+		<nav class="navigation post-navigation" role="navigation">
+				<div class="nav-links clearfix">
+						<?php
+								previous_post_link( '<div class="nav-previous btn btn-default pull-left">%link</div>', _x( '<span class="meta-nav"><i class="dashicons dashicons-arrow-left"></i> </span> %title', '前の記事一覧へ', 'growcreater' ) );
+								next_post_link(     '<div class="nav-next btn btn-default pull-right">%link</div>',     _x( '%title <span class="meta-nav"><i class="dashicons dashicons-arrow-right"></i> </span>', '次の記事一覧へ',     'growcreater' ) );
+						?>
+				</div><!-- .nav-links -->
+		</nav><!-- .navigation -->
+		<?php
 }
 endif;
 
@@ -138,16 +138,22 @@ function wordfes2014_category_transient_flusher() {
 add_action( 'edit_category', 'wordfes2014_category_transient_flusher' );
 add_action( 'save_post',     'wordfes2014_category_transient_flusher' );
 
-
 /**
- * include sponsor module
- * @return void
+ * Add social Share Butin
  */
-
-add_action( 'get_footer', 'include_sponsor_module', 10, 1 );
-
-function include_sponsor_module(){
-	if ( is_user_logged_in() ) {
-		include get_stylesheet_directory() . '/modules/sponsor.php';
+add_shortcode( 'social_btn', 'wordfes2014_social_btn' );
+function wordfes2014_social_btn(){
+	if ( function_exists( 'wp_social_bookmarking_light_output_e' ) ) {
+		wp_social_bookmarking_light_output_e();
 	}
+}
+
+function wordfes2014_the_term( $post_id, $taxonomy ){
+	$output = '';
+	$terms = get_the_terms( $post_id, $taxonomy );
+	foreach ( $terms as $key => $term ) {
+		$output = $term->name;
+	}
+
+	echo esc_html( $output );
 }

@@ -32,7 +32,7 @@ module.exports = function ( grunt ) {
 		uglify: {
 			dist: {
 				files: {
-						'assets/js/scripts.min.js': [
+					'assets/js/scripts.min.js': [
 						'assets/js/plugins/bootstrap/transition.js',
 						'assets/js/plugins/bootstrap/alert.js',
 						'assets/js/plugins/bootstrap/button.js',
@@ -47,6 +47,9 @@ module.exports = function ( grunt ) {
 						'assets/js/plugins/bootstrap/affix.js',
 						'assets/js/plugins/*.js',
 						'assets/js/_*.js'
+					],
+					'assets/js/home.min.js': [
+						'assets/js/home.js'
 					]
 				},
 				options: {
@@ -95,19 +98,6 @@ module.exports = function ( grunt ) {
 					'<%= jshint.all %>'
 				],
 				tasks: [ 'jshint', 'uglify', 'version' ]
-			},
-			livereload: {
-				// Browser live reloading
-				// https://github.com/gruntjs/grunt-contrib-watch#live-reloading
-				options: {
-					livereload: false
-				},
-				files: [
-					'assets/css/main.min.css',
-					'assets/js/scripts.min.js',
-					'templates/*.php',
-					'*.php'
-				]
 			}
 		},
 		clean: {

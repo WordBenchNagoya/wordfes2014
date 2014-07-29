@@ -1,0 +1,24 @@
+#attendees{
+
+}
+
+#attendees .tix-attendee-list{
+  overflow: hidden;
+}
+
+#attendees .tix-attendee-list li{
+  background-image: none;
+  margin-bottom: 20px;
+}
+
+#attendees .tix-attendee-list li .avatar.photo{
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+}
+
+@media ( max-width: 604px ) {
+ #tix form .tix_tickets_table thead tr th, #tix form .tix-ticket-form thead tr th{
+  padding: 8px;
+ }
+}
+

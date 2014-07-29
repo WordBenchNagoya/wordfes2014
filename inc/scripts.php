@@ -21,6 +21,7 @@ function wordfes2014_scripts() {
 
 		wp_deregister_script( 'jquery' );
 		wp_register_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', array(), null, true );
+		wp_register_script( 'wordfes2014_home', get_template_directory_uri() . '/assets/js/home.min.js', array(), null, true );
 
 	}
 
@@ -30,5 +31,11 @@ function wordfes2014_scripts() {
 	wp_register_script( 'wordfes2014_scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', array(), 'd5f17729b0025cd15b71aa1b830f1943', true );
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'wordfes2014_scripts' );
+
+	if ( is_home() || is_front_page() || is_page( 'top' ) ) {
+
+		wp_enqueue_script( 'wordfes2014_home' );
+
+	}
 
 }

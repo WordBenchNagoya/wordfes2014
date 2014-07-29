@@ -49,7 +49,7 @@ function wordfes2014_post_type_init() {
 		'show_in_menu' => true,
 		'query_var' => true,
 		'rewrite' => array( 'slug' => 'sponsored' ),
-		'capability_type' => 'post',
+		'capability_type' => 'page',
 		'has_archive' => true,
 		'hierarchical' => false,
 		'supports' => array( 'title', 'editor', 'author' )
@@ -81,10 +81,10 @@ function wordfes2014_post_type_init() {
 		'show_in_menu' => true,
 		'query_var' => true,
 		'rewrite' => array( 'slug' => 'session' ),
-		'capability_type' => 'post',
+		'capability_type' => 'page',
 		'has_archive' => true,
 		'hierarchical' => false,
-		'supports' => array( 'title', 'editor', 'author', 'thumbnail' )
+		'supports' => array( 'title', 'editor', 'author', 'thumbnail')
 	);
 
 	register_post_type( 'session', $session_args );
@@ -113,10 +113,10 @@ function wordfes2014_post_type_init() {
 		'show_in_menu' => true,
 		'query_var' => true,
 		'rewrite' => array( 'slug' => 'topics' ),
-		'capability_type' => 'post',
+		'capability_type' => 'page',
 		'has_archive' => true,
 		'hierarchical' => false,
-		'supports' => array( 'title', 'editor', 'author', 'thumbnail', ),
+		'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'comment' ),
 	);
 
 	register_post_type( 'topics', $topics_args );
@@ -146,7 +146,7 @@ function wordfes2014_post_type_init() {
 		'show_in_menu' => true,
 		'query_var' => true,
 		'rewrite' => array( 'slug' => 'staff' ),
-		'capability_type' => 'post',
+		'capability_type' => 'page',
 		'has_archive' => true,
 		'hierarchical' => false,
 		'supports' => array( 'title','thumbnail', ),

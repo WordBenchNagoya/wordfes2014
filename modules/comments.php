@@ -19,7 +19,7 @@ if ( post_password_required() ) {
 do_action( 'get_comments_template' );
 
 if ( have_comments() ) : ?>
-<section id="comments">
+<section id="comments" class="main-block">
 	<header class="entry_header">
 		<h2 class="entry-title comment-title">
 			<?php
@@ -68,7 +68,7 @@ if ( ! have_comments()
 		 && ! comments_open()
 		 && ! is_page()
 		 && post_type_supports( get_post_type(), 'comments' ) ) : ?>
-	<section id="comments">
+	<section id="comments" class="main-block">
 		<div class="alert alert-warning">
 			<?php _e( 'コメント欄は閉じています。', 'wordfes2014' ); ?>
 		</div>
@@ -77,9 +77,9 @@ if ( ! have_comments()
 endif; ?>
 
 <?php if ( comments_open() ) : ?>
-<section id="respond">
+<section id="respond" class="main-block">
 	<header class="entry_header secondary-border-top ">
-		<h2 class="entry-title comment-title">
+		<h2 class="entry-title comment-title sub-title01">
 			<?php comment_form_title( __( 'この記事にコメント', 'wordfes2014' ), __( '%s への返信', 'wordfes2014' ) ); ?>
 		</h2>
 	</header>

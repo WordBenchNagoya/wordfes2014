@@ -8,7 +8,7 @@ Template Name: ホーム テンプレート
  * @package    WordPress
  * @subpackage
  * @author     WordBench Nagoya
- * @license    http://opensource.org/licenses/MIT
+ * @license    GPL v2 or later
  * @link       http://2014.wordfes.org
  * @copyright  2014 WordBench Nagoya
  * =====================================================

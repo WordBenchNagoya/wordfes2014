@@ -162,6 +162,35 @@ function wordfes2014_taxonomy() {
 	// register session category
 	register_taxonomy( 'timezone', array( 'session' ), $time_zone_args );
 
+	$topics_labels = array(
+		'name'                       => _x( 'お知らせカテゴリ', 'Taxonomy General Name', 'wordfes2014' ),
+		'singular_name'              => _x( 'お知らせカテゴリ', 'Taxonomy Singular Name', 'wordfes2014' ),
+		'menu_name'                  => __( 'お知らせカテゴリ', 'wordfes2014' ),
+		'all_items'                  => __( 'すべてのお知らせカテゴリ', 'wordfes2014' ),
+		'parent_item'                => __( '親お知らせカテゴリ', 'wordfes2014' ),
+		'parent_item_colon'          => __( '親お知らせカテゴリ:', 'wordfes2014' ),
+		'new_item_name'              => __( '新しいお知らせカテゴリ', 'wordfes2014' ),
+		'add_new_item'               => __( '新しいお知らせカテゴリ', 'wordfes2014' ),
+		'edit_item'                  => __( 'お知らせカテゴリ', 'wordfes2014' ),
+		'update_item'                => __( 'お知らせカテゴリ', 'wordfes2014' ),
+		'separate_items_with_commas' => __( 'アイテムをカンマで区切る', 'wordfes2014' ),
+		'search_items'               => __( 'お知らせカテゴリ', 'wordfes2014' ),
+		'add_or_remove_items'        => __( '追加、または削除', 'wordfes2014' ),
+		'choose_from_most_used'      => __( 'Choose from the most used items', 'wordfes2014' ),
+		'not_found'                  => __( 'お知らせカテゴリが見つかりませんでした。', 'wordfes2014' ),
+	);
+	$topics_args = array(
+		'labels'                     => $topics_labels,
+		'hierarchical'               => true,
+		'public'                     => true,
+		'show_ui'                    => true,
+		'show_admin_column'          => true,
+		'show_in_nav_menus'          => true,
+		'show_tagcloud'              => true,
+	);
+
+	// register session category
+	register_taxonomy( 'topics', array( 'session' ), $topics_args );
 
 
 }

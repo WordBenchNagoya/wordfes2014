@@ -23,14 +23,23 @@
 		<div class="sponsor-area">
 		<?php
 		// Get Sponsor Kind
-		$sponsor_temrs = get_terms( 'sponsor_category', array( 'orderby' => 'menu_order', 'order' => 'DESC') );
+		$sponsor_temrs = get_terms( 'sponsor_category', array( 'hide_empty' => false, 'orderby' => 'order', 'order' => 'ASC') );
+
+    if ( is_user_logged_in() ) {
+      $post_status = array( 'draft','publish' );
+    } else {
+      $post_status = array( 'publish' );
+    }
+
 		foreach ( $sponsor_temrs as $key => $sponsor_term ){
 
-		// Set sponsor Kind to posts settings
+
+  		// Set sponsor Kind to posts settings
 			$args = array(
 				'post_type' => 'sponsored',
-				'post_status' => 'publish',
+				'post_status' => $post_status,
 				'posts_per_page' => -1,
+        'orderby' => 'title',
 				'tax_query' => array(
 					array(
 						'taxonomy' => 'sponsor_category',
@@ -39,7 +48,10 @@
 					),
 				),
 			);
+			// create instance.
 			$the_query = new WP_Query( $args );
+
+
 
 			if ( $the_query->have_posts() ) : ?>
 				<div class="sponsor-contents <?php echo esc_attr( $sponsor_term->slug ) ?>">
@@ -53,7 +65,7 @@
 						while ( $the_query->have_posts() ):
 							$the_query->the_post(); ?>
 								<div class="colmun text-center">
-									<a href="<?php echo esc_url( get_field( 'sponsor_url' ) ) ?>" target="_blank"><img src="<?php echo wp_get_attachment_url( get_field( 'sponsor_logo_image' ) ) ?>" alt="<?php the_title(); ?>" class="img-responsive"></a>
+									<a href="<?php echo esc_url( get_field( 'sponsor_url' ) ) ?>" target="_blank" title="<?php the_title(); ?>"><img src="<?php echo wp_get_attachment_url( get_field( 'sponsor_logo_image' ) ) ?>" alt="<?php the_title(); ?>" class="img-responsive"></a>
 								</div>
 						<?php
 						endwhile; ?>
@@ -66,8 +78,14 @@
 
 			<?php
 			endif;
-		} ?>
+      wp_reset_query();
 
+		} ?>
+		<?php if ( is_user_logged_in() ) { ?>
+			<p class="edit-link">
+				<a href="<?php echo admin_url( '/post-new.php?post_type=sponsored' ); ?>" class="btn btn-success"><i class="dashicons dashicons-admin-generic"></i> 新しいスポンサーを追加</a>
+			</p>
+		<?php } ?>
 
 		</div>
 	</div>

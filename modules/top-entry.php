@@ -17,11 +17,14 @@
  */
 
 
-function get_avatar_url( $author_id, $size = '' ) {
-    $get_avatar = get_avatar( $author_id, $size );
-    preg_match("/src='(.*?)'/i", $get_avatar, $matches);
-    return ( $matches[1] );
+if ( ! function_exists( 'get_avatar_url' ) ) {
+  function get_avatar_url( $author_id, $size = '' ) {
+      $get_avatar = get_avatar( $author_id, $size );
+      preg_match("/src='(.*?)'/i", $get_avatar, $matches);
+      return ( $matches[1] );
+  }
 }
+
 // get post type "attendees"
 $attendees = get_posts( $attendees_args );
 function top_entry_twitter_icon(){
@@ -46,7 +49,11 @@ function top_entry_twitter_icon(){
 				),
 			),
 		) );
-
+    $facebook_question_ids = array(
+      '521',
+      '523',
+      '525',
+    );
 		foreach ( $questions as $key => $question ) {
 			$question_ids[] = $question->ID;
 		}
@@ -124,6 +131,7 @@ function top_entry_twitter_icon(){
 						// Disable object cache for prepared metadata.
 						$camptix->filter_post_meta = $camptix->prepare_metadata_for( $attendees );
 
+
 						foreach ( $attendees as $attendee_id ) {
 							if ( $printed > $posts_per_page )
 								break;
@@ -144,21 +152,37 @@ function top_entry_twitter_icon(){
 									$twitter_id =  $questions[$question_id];
 								}
 							}
+              foreach ( $facebook_question_ids as $key => $facebook_id ) {
 
-							$matches = array();
-							$screen_name = false;
+                if ( $questions[$facebook_id] ) {
+                  $facebook_info =  $questions[$facebook_id];
+                }
+              }
 
-							if ( preg_match( '#^@?([a-z0-9_]+)$#i', $questions[$question_id], $matches ) )
-								$screen_name = $matches[1];
-							elseif ( preg_match( '#^(https?://)?(www\.)?twitter\.com/(\#!/)?([a-z0-9]+)$#i', $value, $matches ) )
-								$screen_name = $matches[4];
+              $facebook_id = '';
+              if ( $facebook_info ) {
+                if ( strstr( $facebook_info, 'https://www.facebook.com/') ) {
+                  $facebook_id = str_replace( 'https://www.facebook.com/', '', $facebook_info );
+                } else {
+                  $facebook_id = $facebook_info;
+                }
+              }
 
+              $matches = array();
+              $screen_name = false;
 
-							if ( $screen_name ) {
-								echo '<li><img src="http://www.paper-glasses.com/api/twipi/' . $screen_name . '/mini" class="img-responsive img-circle"></li>';
-							} else {
-								echo '<li><img src="' . get_avatar_url( get_post_meta( $attendee_id, 'tix_email', true ) ) . '" class="img-responsive img-circle" /></li>';
-							}
+              if ( preg_match( '#^@?([a-z0-9_]+)$#i', $twitter_id, $matches ) ){
+                $screen_name = $matches[1];
+              } elseif ( preg_match( '#^(https?://)?(www\.)?twitter\.com/(\#!/)?([a-z0-9]+)$#i', $twitter_id, $matches ) ){
+                $screen_name = $matches[4];
+              }
+              if ( $screen_name ) {
+                echo '<li><a class="push" href="http://twitter.com/' . $screen_name . '/" target="_blank"><img src="http://www.paper-glasses.com/api/twipi/' . $screen_name . '/bigger/" class="img-responsive img-circle" ></a></li>';
+              } else if( $facebook_id ){
+                echo '<li><a class="push" href="https://www.facebook.com/' . $facebook_id . '/" target="_blank"><span style="display: block;background-image: url(https://graph.facebook.com/' . $facebook_id . '/picture/?type=normal); background-size: 100% auto;width: 70px;height: 70px;" class="img-responsive img-circle" ></span></a></li>';
+              } else {
+                echo '<li><img src="' . get_avatar_url( get_post_meta( $attendee_id, 'tix_email', true ) ) . '" class="img-responsive img-circle"  width="70" height="70" /></li>';
+              }
 							?>
 							<?php
 							// do_action( 'camptix_attendees_shortcode_item', $attendee_id );
@@ -166,6 +190,9 @@ function top_entry_twitter_icon(){
 							// clean_post_cache( $attendee_id );
 							// wp_cache_delete( $attendee_id, 'posts');
 							// wp_cache_delete( $attendee_id, 'post_meta');
+              $facebook_id = '';
+              $facebook_info = '';
+              $twitter_id = '';
 							$printed++;
 
 						} // foreach ?>
@@ -173,11 +200,11 @@ function top_entry_twitter_icon(){
 						$camptix->filter_post_meta = false; // cleanup
 					// } // while true
 				?>
-					<li class="more"><a href="#" class="img-circle">MORE...</a></li>
+					<li class="more"><a href="<?php echo site_url( '/entry/#tix-attendees' ) ?>" class="img-circle">MORE...</a></li>
 				</ul>
 
 				<div class="entry-summary">
-					<span class="current">150 </span> / 200 ENTRY <a class="btn btn-warning btn-lg" href="<?php echo site_url( '/entry/' ) ?>"><i class="glyphicon glyphicon-flag"></i> ENTRY</a>
+					<span class="current"> <?php $count = wp_count_posts( 'tix_attendee' ); echo ( $count->publish + $count->pending );?></span> / 252 ENTRY <a class="btn btn-warning btn-lg" href="<?php echo site_url( '/entry/' ) ?>"><i class="glyphicon glyphicon-flag"></i> ENTRY</a>
 				</div>
 			</div>
 		</div>
@@ -190,4 +217,7 @@ function top_entry_twitter_icon(){
 		// set_transient( $transient_key, array( 'content' => $content, 'time' => time() ), $cache_time );
 		return $content;
 }
+
+
 echo top_entry_twitter_icon();
+

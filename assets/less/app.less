@@ -8,8 +8,7 @@
  * Import Google Font
  */
 
-@import url("http://fonts.googleapis.com/css?family=Quicksand:300,400,700");
-
+@import url(http://fonts.googleapis.com/css?family=Quicksand:300,400,700);
 /**
  * Theme Include
  */
@@ -28,24 +27,76 @@
 
 // WordPress Default Style
 @import "themes/wordpress.less";
+@import "themes/modules/sponsor.less";
+#menu-item-515 {
+  background-image: none;
+}
+/* Push */
+@-webkit-keyframes push {
+  50% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
 
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes push {
+  50% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.push{
+  display: inline-block;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+.push:hover, .push:focus, .push:active {
+  -webkit-animation-name: push;
+  animation-name: push;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
 
 /**
  * For Tablet Setting
  *
  * "themes/responsive-tablet.less"
  */
+@media (min-width: 1000px) and (max-width: 1280px) {
+  .header .social-area{
+    margin-top: 0.2em;
+    margin-bottom: 0.8em;
+  }
+}
 
-@media (max-width: 1199px) {
+@media (max-width: 1280px) {
+
 	.text-center.time{
 		min-height: 140px;
 	}
-	.header.header-minimal {
-		min-height: 168px;
-	}
-	.social-area{
+  .header .logo-area{
+    text-align: center;
+  }
+	.header .social-area{
+    margin-top: 3em;
 		margin-bottom: 2em;
-		text-align: left !important;
+		text-align: center !important;
 		float: none;
 		height: 30px;
 		.sns-button{
@@ -53,12 +104,14 @@
 			display: inline-block !important;
 			margin-left: 20px;
 		}
+
 	}
+
 	#main_area #livestage .slider .slider-image{
 		max-width: 328px;
 	}
 }
-@media (max-width: 1024px) {
+@media (min-width: 604px) and (max-width:1281px) {
 	@import "themes/responsive-tablet.less";
 }
 
@@ -67,6 +120,6 @@
  *
  * "themes/responsive-smartphone.less"
  */
-@media (max-width: 555px) {
+@media ( max-width: 604px ) {
 	@import "themes/responsive-smartphone.less";
 }

@@ -3,7 +3,7 @@
  * Register sidebars and widgets
  */
 function roots_widgets_init() {
-	// Sidebars
+
 	// register sidebar-primary
 	register_sidebar(
 		array(

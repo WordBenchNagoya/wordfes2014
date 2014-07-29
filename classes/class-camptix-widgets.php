@@ -115,7 +115,7 @@ class Camptix_Widgets extends WP_Widget {
 			</tbody>
 		</table>
 		<p class="text-center">
-			<a class="btn btn-warning btn-lg"><i class="glyphicon glyphicon-flag"></i> ENTRY</a>
+			<a href="<?php echo site_url( '/entry/' ) ?>" class="btn btn-warning btn-lg"><i class="glyphicon glyphicon-flag"></i> ENTRY</a>
 		</p>
 	</div>
   <?php

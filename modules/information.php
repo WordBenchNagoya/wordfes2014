@@ -5,7 +5,7 @@
  * @package    WordPress
  * @subpackage
  * @author     WordBench Nagoya
- * @license    http://opensource.org/licenses/MIT
+ * @license    GPL v2 or later
  * @link       http://2014.wordfes.org
  * @copyright  2014 WordBench Nagoya
  * =====================================================
@@ -18,49 +18,52 @@
 			<div class="clearfix">
 
 				<!-- topics -->
-				<div class="col-xs-12 col-lg-4 col-md-6">
+				<div class="col-xs-12 col-lg-4 col-md-4">
 					<h2 class="section--title inverse--title">
 						TOPICS
 					</h2>
 					<div class="section--contents">
 						<div class="info-wrap">
 							<?php
-							$news_args = array(
-								'post_type' => 'news',
+							$topics_args = array(
+								'post_type' => 'topics',
 								'posts_per_page' => 20,
 							);
 
 							// create instance
-							$news_query = new WP_Query( $news_args );
+							$topics_query = new WP_Query( $topics_args );
 
-							if ( $news_query->have_posts() ) :
-								while ( $news_query->have_posts() ) :
-									$news_query->the_post(); ?>
+							if ( $topics_query->have_posts() ) :
+								while ( $topics_query->have_posts() ) :
+									$topics_query->the_post(); ?>
 
 								<dl class="info-row">
-									<dt class="time"><?php the_date( 'Y' ) ?><br><?php the_date( 'm-d' ) ?></dt>
+									<dt class="time"><?php echo get_the_date( 'Y' ) ?><br><?php echo get_the_date( 'm-d' ) ?></dt>
 									<dd class="info-title"><a href="<?php the_permalink() ?>"><?php the_title() ?></a></dd>
 								</dl>
 
-							<?php endwhile; ?>
-
-							<?php else: ?>
+							<?php
+							endwhile; ?>
+							</div>
+							<p class="more-btn text-center">
+								<a href="<?php echo site_url( '/topics/' ) ?>" class="btn btn-primary">トピックス一覧</a>
+							</p>
+							<?php
+							else : ?>
 
 							<dl class="info-row">
 								<dt>まだトピックスは投稿されていません。</dt>
 							</dl>
+						</div>
 
 							<?php endif; ?>
 
-						</div>
-						<!--p class="more-btn text-center">
-							<a href="<?php echo site_url( '/topics/' ) ?>" class="btn btn-primary">トピックス一覧</a>
-						</p-->
+
 					</div>
 				</div>
 
 				<!-- staff blog -->
-				<div class="col-xs-12 col-lg-4 col-md-6">
+				<div class="col-xs-12 col-lg-4 col-md-4">
 					<h2 class="section--title inverse--title">
 						STAFF BLOG
 					</h2>
@@ -79,28 +82,30 @@
 									$blog_query->the_post(); ?>
 
 								<dl class="info-row">
-									<dt class="time"><?php the_date( 'Y' ) ?><br><?php echo get_the_date( 'm-d' ) ?></dt>
+									<dt class="time"><?php echo get_the_date( 'Y' ) ?><br><?php echo get_the_date( 'm-d' ) ?></dt>
 									<dd class="info-title"><a href="<?php the_permalink() ?>"><?php the_title() ?></a></dd>
 								</dl>
 
 							<?php endwhile; ?>
-
+						</div>
+								<p class="more-btn text-center">
+									<a href="<?php echo site_url( '/staff-blog/' ) ?>" class="btn btn-primary">スタッフブログ一覧</a>
+								</p>
 							<?php else: ?>
 
 							<dl class="info-row">
 								<dt>まだスタッフブログは投稿されていません。</dt>
 							</dl>
+						</div>
 
 							<?php endif; ?>
-						</div>
-						<!--p class="more-btn text-center">
-							<a href="<?php echo site_url( '/archives/' ) ?>" class="btn btn-primary">スタッフブログ一覧</a>
-						</p-->
+
+
 					</div>
 				</div>
 
 				<!-- other -->
-				<div class="col-xs-12 col-lg-4 col-md-6">
+				<div class="col-xs-12 col-lg-4 col-md-4">
 					<h2 class="section--title inverse--title">
 						OTHER
 					</h2>
@@ -110,13 +115,13 @@
 					</div>
 					<div class="row">
 						<div class="col-lg-12 col-xs-12">
-							<p><a href="http://wordbench.org/groups/nagoya/" target="_blank"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/banner/bench_bn.png" alt="WordBench Nagoya"></a></p>
+							<p><a class="push" href="http://wordbench.org/groups/nagoya/" target="_blank"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/banner/bench_bn.png" alt="WordBench Nagoya"></a></p>
 						</div>
-						<div class="col-lg-6 col-xs-12">
-							<a href="https://www.facebook.com/WordBenchNagoya?fref=ts" target="_blank"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/img/banner/fb_bn.png" alt="WordBench Nagoya Facebookページ"></a>
+						<div class="col-lg-6 col-xs-6">
+							<a class="push" href="https://www.facebook.com/WordBenchNagoya?fref=ts" target="_blank"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/img/banner/fb_bn.png" alt="WordBench Nagoya Facebookページ"></a>
 						</div>
-						<div class="col-lg-6 col-xs-12">
-							<a href="https://twitter.com/wbNagoya" target="_blank"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/img/banner/twitter_bn.png" alt="WordBench Nagoya Twitter アカウント"></a>
+						<div class="col-lg-6 col-xs-6">
+							<a class="push" href="https://twitter.com/wbNagoya" target="_blank"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/img/banner/twitter_bn.png" alt="WordBench Nagoya Twitter アカウント"></a>
 						</div>
 					</div>
 				</div>

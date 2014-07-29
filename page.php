@@ -4,7 +4,7 @@
  * =====================================================
  * @package    Wordfes2014
  * @author     WordBench Nagoya
- * @license    http://opensource.org/licenses/MIT
+ * @license    GPL v2 or later
  * @link       http://2014.wordfes.org
  * @copyright  2014 WordBench Nagoya
  * =====================================================
@@ -31,7 +31,7 @@
 	<?php
 		// If comments are open or we have at least one comment, load up the comment template
 		if ( comments_open()
-		     || '0' != get_comments_number() ) :
+				 || '0' != get_comments_number() ) :
 			comments_template( '/modules/comments.php' );
 		endif;
 	?>
