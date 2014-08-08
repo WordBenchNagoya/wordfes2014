@@ -1,0 +1,319 @@
+@charset "utf-8";
+
+.entry-content .main-block{
+	padding : 0;
+}
+.post-contents .post-thumbnail {
+	display: none;
+	margin:0;
+}
+.entry-content .main-block h2{
+	width : 100%;
+	height:28px;
+	padding : 0 ;
+	text-align : center;
+	background-color : #7a594c;
+	margin : 0;
+	position:relative;
+}
+.entry-content .main-block h2 img {
+	padding:0 auto;
+	margin:0 auto;
+	display:block;
+	padding-top:5px;
+}
+
+.entry-content .main-block .inuyama_box.iym_b1{
+	background-image : url(http://2014.wordfes.org/wp-content/uploads/2014/08/omoide_main_image.jpg);
+}
+.inuyama_box p{
+	font-size:15px;
+}
+
+.entry-content .main-block .inuyama_box{
+	background-color : #fff;
+	background-repeat : no-repeat;
+	background-position : right top;
+}
+.entry-content .main-block .inuyama_box .texts{
+	width : 50%;
+	padding : 30px 50px;
+	padding-bottom: 5px;
+	background-color : rgba(255,255,255,0.95);
+}
+.entry-content .main-block .inuyama_box .texts p{
+	margin-top: 5px;
+}
+.entry-content .main-block .inuyama_box .texts .wp-image-1332{
+	margin-top: 50px;
+}
+
+.entry-content .main-block .inuyama_box .texts img{
+	display : block;
+	margin : 30px auto;
+}
+.entry-content .main-block .inuyama_box .texts hr{
+	margin: 40px 0;
+	border-top : 1px solid rgba(0,0,0,.2);
+	border-bottom : 1px solid rgba(255,255,255,.3);
+}
+.entry-content .main-block .inuyama_box .texts p{
+}
+
+.entry-content .main-block .iym_b2 {
+	width : 100%;
+	margin:1px 0 1px 0;
+}
+.entry-content .main-block .inuyama_box.iym_b2 .texts{
+	padding-top: 10px;
+}
+.entry-content .main-block .inuyama_box.iym_b2 .texts p{
+	display:none;
+}
+.entry-content .main-block .iym_b2 .texts p#waltari{
+	padding-top: 5px;
+	margin: 0;
+	display:block;
+}
+.entry-content .main-block .iym_b2 .texts img{
+	margin:12px auto 7px auto;
+
+}
+.entry-content .main-block .inuyama_box.iym_b2 img.wp-image-1324{
+	float : right;
+	width : 50%;
+}
+
+.entry-content .main-block .iym_b2 .texts h3{
+		text-align : center;
+		margin:3px;
+}
+
+.entry-content .main-block #ar5 {
+	width : 100%;
+	position : relative;
+	margin:0;
+}
+.entry-content .main-block .koutei{
+	width : 50%;
+	padding-top: 10px;
+}
+.entry-content .main-block .koutei img{
+	display : block;
+	margin : 5px auto 0 auto;
+
+}
+.entry-content .main-block iframe{
+	width : 50%;
+	height : 350px;
+	margin : 0;
+	position : absolute;
+	top : 0px;
+	right : 0px;
+}
+.entry-content .main-block .wp-image-1327{
+	display : block;
+	margin : 30px auto;
+}
+.entry-content .main-block #ar5 : after {
+}
+.entry-content .main-block img.wp-image-1329 {
+	margin-top:25px;
+}
+
+
+
+
+@media ( min-width : 1200px ){ /* 1137px */
+	.inuyama_box.iym_b1{
+		height : 849px;
+	}
+	.inuyama_box.iym_b1 .texts{
+		width : 45%;
+		height:849px;
+		background-color : rgba(255,255,255,.95);
+		padding:auto 60px;
+	}
+	.entry-content .main-block .inuyama_box .texts{
+		padding-left: 85px;
+		padding-right: 85px;
+	}
+	.entry-content .main-block .inuyama_box.iym_b2{
+		background-image : url(http://2014.wordfes.org/wp-content/uploads/2014/08/omoide_2nd_img.jpg);
+		background-position : left middle;
+		background-repeat : no-repeat;
+	}
+	.entry-content .main-block .inuyama_box.iym_b2 .texts{
+	}
+	.entry-content .main-block .inuyama_box.iym_b2 img.wp-image-1324{
+		display : none;
+	}
+	.entry-content .main-block .iym_b2{
+		/*background-image : url(http://2014.wordfes.org/wp-content/uploads/2014/08/omoide_2nd_img.jpg);
+		background-position : left middle;
+		background-repeat : no-repeat;*/
+		height:225px;
+	}
+	#waltari {
+		padding-bottom:15px;
+	}
+	.entry-content .main-block iframe {
+		height: 396px;
+	}
+	#nemesis{ display:none; }
+}
+@media ( min-width : 992px ) and ( max-width : 1199px) { /* 910px  */
+	.entry-content .main-block .inuyama_box.iym_b1{
+		background-position:center bottom -20%;
+	}
+	.entry-content .main-block .inuyama_box.iym_b2 .texts{
+		float : left;
+		width : 50%;
+		background-color : none;
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+	.entry-content .main-block .inuyama_box.iym_b2 .texts h3{
+		width : 100%;
+		padding : auto 10px;
+	}
+	.entry-content .main-block .inuyama_box.iym_b2 .texts p{
+		padding : 10px 20px;
+	}
+	.entry-content .main-block .iym_b2{
+		/*background-image : url(http://2014.wordfes.org/wp-content/uploads/2014/08/omoide_2nd_img.jpg);
+		background-position : left middle;
+		background-repeat : no-repeat;*/
+		height:225px;
+	}
+	.entry-content .main-block .inuyama_box.iym_b2 img#nemesis{
+		width : 50%;
+		height : auto;
+
+	}
+	.entry-content .main-block iframe {
+		height: 408px;
+	}
+
+}
+@media ( max-width : 991px ) { /* 690px BRAKE*/
+	.entry-content .main-block .inuyama_box.iym_b1{
+		width:100%;
+		height:auto;
+		background-position:center bottom -35%;
+		background-size:contain;
+		margin-bottom:0;
+		padding-bottom: 300px;
+	}
+	.entry-content .main-block .inuyama_box.iym_b1 .texts{
+		width:100%;
+		background-color:#fff;
+		padding-bottom: 10px;
+	}
+
+
+	.entry-content .main-block .inuyama_box.iym_b2{
+		padding:0;
+	}
+
+	.entry-content .main-block .inuyama_box.iym_b2 .texts h3{
+		padding:0 auto;
+	}
+	.entry-content .main-block .inuyama_box.iym_b2 .texts{
+		width:100%;
+	}
+	.entry-content .main-block .inuyama_box.iym_b2 .texts p{
+		padding : 5px ;
+	}
+
+	.entry-content .main-block .inuyama_box.iym_b2 img{
+		width:100%;
+		height:auto;
+	}
+	.entry-content .main-block #ar5 {
+	}
+	.entry-content .main-block #ar5 .koutei{
+		width:100%;
+		float:none;
+	}
+	.entry-content .main-block #ar5 iframe {
+		margin-top:20px;
+		position:relative;
+		top:auto;
+		right:auto;
+		width:100%;
+	}
+	.entry-content .main-block .iym_b2 .texts p#waltari{ border:0; }
+@media ( max-width : 767px ) { /* free */
+	.entry-content .main-block .inuyama_box.iym_b1{
+		width:100%;
+		height:auto;
+		background-position:center bottom -15%;
+		background-size:contain;
+		margin-bottom:0;
+		padding-bottom: 300px;
+	}
+}
+@media ( min-width : 320px ) and ( max-width : 556px ) {
+	.entry-content .main-block .inuyama_box.iym_b1{
+		padding-bottom:250px;
+}
+	.entry-content .main-block .inuyama_box .texts {
+		padding : 5px 10px;
+	}
+
+
+
+
+
+
+
+/*
+@media ( min-width : 1292px ){
+	.entry-content .main-block .inuyama_box .texts{
+		width : 50%;
+		padding : 40px 80px;
+	}
+}
+
+@media ( max-width : 1291px ) {
+	.entry-content .main-block .iym_b1 .texts{
+		width : 50%;
+	}
+
+	.entry-content .main-block .iym_b2 .texts{
+		width : 569px;
+		margin : 10px auto;
+		background-color : #fff;
+	}
+	.entry-content .main-block .iym_b2{
+		padding-bottom : 225px;
+		background-position : center bottom;
+	}
+	.entry-content .main-block #ar5{
+		clear : both;
+		width : 100%;
+	}
+@media ( max-width : 768px ) {
+	.entry-content .main-block .iym_b1{
+		width : 100%;
+		padding-bottom : 300px;
+		background-position : center middle;
+	}
+	.entry-content .main-block .iym_b1 .texts{
+		width : 100%;
+		padding : 10px 100px;
+	}
+
+	.entry-content .main-block .iym_b2 .texts{
+		width : 100%;
+		margin : 10px auto;
+		background-color : #fff;
+	}
+	.entry-content .main-block .iym_b2{
+		padding-bottom : 225px;
+		background-position : center bottom;
+	}
+
+}*/
+

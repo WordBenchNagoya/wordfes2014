@@ -15,8 +15,8 @@
 	background: #B1C864;
 	padding-bottom: 30px;
 	/**
-   * Main Page Title
-   */
+	 * Main Page Title
+	 */
 	.page-title{
 		padding-bottom: 0px;
 		margin-bottom: 0;
@@ -24,9 +24,9 @@
 		font-size: 46px;
 	}
 
-  /**
-   * Sub Page Title
-   */
+	/**
+	 * Sub Page Title
+	 */
 	.page-sub-title{
 		font-size: 12px;
 	}
@@ -51,68 +51,15 @@
 		padding: 20px;
 		margin-bottom: 40px;
 	}
-  /**
-   * Overwrite Headding Tag
-   */
+	/**
+	 * Overwrite Headding Tag
+	 */
 	// h1,h2,h3,h4,h5,h6{
 	// 	color: #000;
 	// 	font-weight: normal;
 	// }
 	h2,h3,h4,h5,h6{
 		margin-top: 10px;
-	}
-
-  /**
-   * Contents Sub Headding
-   */
-	.sub-title01{
-		font-size: 1.8em;
-		background: url(../img/subpage/headlineicon.gif) no-repeat;
-		background-position: left top;
-		padding-top: 35px;
-		padding-bottom: 10px;
-		margin-top: -30px;
-		padding-left: 60px;
-		font-weight: bold;
-		.title-date{
-			font-size: 12px;
-			display: block;
-			margin-top: -6px;
-		}
-	}
-
-  /**
-   * Overwrite Headding Tag
-   */
-	.sub-title02{
-		font-size: 18px;
-		background: #EBEBEB;
-		-webkit-border-radius: 5px;
-		        border-radius: 5px;
-		line-height: 2.8em;
-		padding-left: 30px;
-    margin-top: 24px;
-		position: relative;
-		&:after{
-			content: "";
-			width: 5px;
-			height: 21px;
-			display: block;
-			background: #3cb6c4;
-			position: absolute;
-			top: 15px;
-			left: 0;
-		}
-	}
-
-  /**
-   * Overwrite Headding Tag
-   */
-  .sub-title03,
-	h3.sub-title{
-		font-size: 18px;
-		padding-bottom: 10px;
-		border-bottom: 1px solid #AAA;
 	}
 	ul{
 		> li{
@@ -127,6 +74,77 @@
 		margin-bottom: 2em;
 	}
 }
+
+/**
+ * Contents Sub Headding
+ */
+.post-content .sub-title01,
+#main .sub-title01,
+.main-block .sub-title01{
+	font-size: 1.8em;
+	background: url(../img/subpage/headlineicon.gif) no-repeat;
+	background-position: left top;
+	padding-top: 35px;
+	padding-bottom: 10px;
+	margin-top: -30px;
+	padding-left: 60px;
+	font-weight: bold;
+	.title-date{
+		font-size: 12px;
+		display: block;
+		margin-top: -6px;
+	}
+}
+
+/**
+ * Overwrite Headding Tag
+ */
+.single-post .entry-content h1,
+.sub-title02{
+	font-size: 18px;
+	background: #EBEBEB;
+	-webkit-border-radius: 5px;
+					border-radius: 5px;
+	line-height: 2.8em;
+	padding-left: 30px;
+	margin-top: 24px;
+	position: relative;
+	&:after{
+		content: "";
+		width: 5px;
+		height: 21px;
+		display: block;
+		background: #3cb6c4;
+		position: absolute;
+		top: 15px;
+		left: 0;
+	}
+}
+
+/**
+ * Overwrite Headding Tag
+ */
+.single-post .entry-content h2,
+.sub-title03,
+#jp-relatedposts .jp-relatedposts-headline,
+.sharedaddy .sd-title,
+h3.sub-title{
+	font-size: 18px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #AAA;
+}
+.single-post .entry-content h3{
+	font-size: 18px;
+	padding-bottom: 10px;
+	background: url("../img/common/arrow-sm.gif") no-repeat left 0.5em;
+	padding-left: 20px;
+	border-bottom: 1px solid #AAA;
+	a{
+		color: #252525;
+		text-decoration: underline;
+	}
+}
+
 
 .archive{
 	.sub-title03{
@@ -184,4 +202,60 @@
 		color: #1e1e1e;
 	}
 }
-
+.sub-title04{
+	font-size: 16px;
+	border-left: 4px solid #53AAB9;
+	padding-left: 10px;
+}
+.speaker-title{
+	background: #DBEEF0;
+	font-size: 18px;
+	line-height: 3em;
+	padding-left: 20px;
+	border-bottom: 1px solid #FFF;
+	margin-bottom: 0;
+}
+.speaker-contents{
+	background: #DBEEF0;
+	padding-left: 8px;
+	padding-right: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	h4{
+		padding-top: 0;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+.single-session{
+	.table.table-bordered{
+		margin-top: 20px;
+		margin-bottom: 30px;
+	}
+}
+.social-icon{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	a{
+		background-position: left center;
+		padding-left: 25px;
+		display: inline-block;
+		color: #252525;
+		font-size: 12px;
+		line-height: 1.6em;
+		text-decoration: underline;
+		margin-right: 10px;
+	}
+}
+.facebook-icon{
+	background: url(../img/subpage/facebook.gif) no-repeat;
+}
+.twitter-icon{
+	background: url(../img/subpage/twitter.gif) no-repeat;
+}
+.website-icon{
+	background: url(../img/subpage/homepage.png) no-repeat;
+}
+.single-session #jp-relatedposts{
+  display: none !important;
+}

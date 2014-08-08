@@ -188,6 +188,9 @@
 	font-weight: 400;
 	font-size: 30px
 }
+#schedule section#stay{
+  background: none;
+}
 #schedule section h3 i {
 	font-size: 22px
 }
@@ -219,6 +222,9 @@
 
 .picup--area .pickup--banner{
 	margin-bottom: 1em;
+}
+.banner{
+  margin-bottom: 1em;
 }
 
 /**

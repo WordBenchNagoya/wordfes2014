@@ -62,7 +62,7 @@ function wordfes2014_post_type_init() {
 		'singular_name' => 'session',
 		'add_new' => '新しいセッション',
 		'add_new_item' => '新しいセッションを登録',
-		'edit_item' => '新しいセッションを編集',
+		'edit_item' => 'このセッションを編集',
 		'new_item' => '新しいセッションを登録',
 		'all_items' => 'すべてのセッション',
 		'view_item' => 'セッションページを見る',
@@ -82,7 +82,7 @@ function wordfes2014_post_type_init() {
 		'query_var' => true,
 		'rewrite' => array( 'slug' => 'session' ),
 		'capability_type' => 'page',
-		'has_archive' => true,
+		'has_archive' => false,
 		'hierarchical' => false,
 		'supports' => array( 'title', 'editor', 'author', 'thumbnail')
 	);

@@ -1,0 +1,150 @@
+@charset "utf-8";
+
+
+/************************************************************************
+time-table
+*************************************************************************/
+
+.time-table th{
+  background:#F6F4E8;
+  vertical-align: middle !important;
+}
+
+.time-table td{
+  vertical-align: middle !important;
+  }
+
+.time-table thead th{
+  color:#FFF;
+  text-align: center;
+}
+
+.time-table col{
+  width: 17.6%;
+}
+
+.time-table col.time{
+  width: 12%;
+}
+
+.time-table col.stage1{
+  background:;
+}
+.time-table th.stage1{
+  background: #F15F62;
+}
+
+
+.time-table col.stage2{
+  background: ;
+}
+.time-table th.stage2{
+  background: #925E9C;
+}
+.time-table .pink{
+  color:#FAABBD;
+}
+
+.time-table col.stage3{
+  background:;
+}
+.time-table th.stage3{
+  background: #2C8EC6;
+}
+.time-table .red{
+  color:#EF7163;
+}
+
+.time-table col.stage4{
+  background:;
+}
+
+.time-table th.stage4{
+  background: #8BAE45;
+}
+
+.time-table .yellow{
+  color: #EADC5B;
+}
+
+.time-table col.stage5{
+  background: ;
+}
+.time-table th.stage5{
+  background: #BCA7D6;
+}
+
+.time-table .purple{
+  color: #BCA7D6;
+}
+
+.time-table td.rest{
+  background:#F3F8F8;
+  text-align: center;
+  color: #999;
+}
+
+.time-table td.nothing{
+  background:#EEE;
+}
+
+.time-table th strong{
+  color: #039;
+  margin-bottom:0.5em;
+  font-size:87%;
+  display:block;
+  text-align:center;
+}
+
+.time-table td dl dt{
+  font-weight: bold;
+  font-size: 94%;
+  line-height: 1.4;
+  margin-bottom: 0.5em;
+}
+
+.time-table td dd .level_icon{
+  white-space: nowrap;
+  font-style: normal;
+  color: #FFF;
+  font-size:75%;
+  padding: 2px 5px;
+}
+
+.time-table td dd .level_beginner-2{
+  background: #f04b4b;
+}
+
+.time-table td dd .level_middle{
+  background:#73be43;
+}
+
+.time-table td dd .level_expert{
+  background:#3563b9;
+}
+
+.time-table td dd .level_all{
+  background:#3cb6c4;
+}
+
+
+@media (max-width: 991px) {
+.time-table td,.time-table th{
+  display: block;
+  }
+
+.time-table{
+  border:none;}
+
+.time-table th{
+  background:#1f558e ;
+  color:#FFF;
+  text-align:center;
+  }
+
+.time-table th strong{
+  color:#FFF;}
+
+
+}
+

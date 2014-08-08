@@ -399,3 +399,24 @@ function wordfes2014_bootstrap_pagination( $html ){
 	return '<div class=" pagination-centered"><ul class="pagination primary-color">' . $out . '</ul></div>';
 
 }
+
+
+/**
+ * TinyMCE Customize
+ * @param array $buttons
+ */
+add_filter( 'mce_buttons_3', 'add_more_buttons' );
+
+function add_more_buttons( $buttons ) {
+  $buttons[] = 'hr';
+  $buttons[] = 'del';
+  $buttons[] = 'sub';
+  $buttons[] = 'sup';
+  $buttons[] = 'fontselect';
+  $buttons[] = 'fontsizeselect';
+  $buttons[] = 'cleanup';
+  $buttons[] = 'styleselect';
+  $buttons[] = 'backcolor';
+
+  return $buttons;
+}

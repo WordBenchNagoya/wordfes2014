@@ -148,12 +148,30 @@ function wordfes2014_social_btn(){
 	}
 }
 
-function wordfes2014_the_term( $post_id, $taxonomy ){
+function wordfes2014_the_term( $post_id, $taxonomy, $meta = '' ){
 	$output = '';
 	$terms = get_the_terms( $post_id, $taxonomy );
-	foreach ( $terms as $key => $term ) {
-		$output = $term->name;
+
+	if ( $terms ) {
+		foreach ( $terms as $key => $term ) {
+			$output = $term->name;
+		}
+	}
+
+	if ( $meta ) {
+		$output = $term->$meta;
 	}
 
 	echo esc_html( $output );
+}
+
+function wordfes2014_post_edit_link( $id = 0 ){
+	if ( is_user_logged_in() && $id ) {
+		edit_post_link(
+			__( 'この記事を編集', 'wordfes2014' ),
+			'<span class="edit-link btn btn-link btn-sm"><i class="dashicons dashicons-arrow-right"></i>',
+			'</span>',
+			$id
+		);
+	}
 }

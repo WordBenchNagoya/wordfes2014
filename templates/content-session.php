@@ -9,6 +9,13 @@
  * @copyright  2014 WordBench Nagoya
  * =====================================================
  */
+
+$facebook     = get_field( 'session_facebook' );
+$twitter      = get_field( 'session_twitter' );
+$website      = get_field( 'session_website' );
+$contents     = get_field( 'session_contents' );
+$speaker_name = get_field( 'session_speaker_name' );
+$belong_link  = get_field( 'session_speaker_belong_link' );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'main-block' ); ?>>
@@ -21,21 +28,146 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-    <h4>セッション内容</h4>
-    <?php the_field( 'session_contents' ) ?>
-    <h4>こんな人におすすめ</h4>
-    <?php the_field( 'session_recommended_person' ) ?>
-    <h4>その他</h4>
-    <?php the_field( 'session_other' ) ?>
-    <h4>スピーカー</h4>
-    <?php the_field( 'session_speaker_name' ) ?>
-    <h4>スピーカー紹介</h4>
-    <?php the_field( 'session_description' ) ?>
-    <h4>所属</h4>
-    <?php the_field( 'session_speaker_belong' ) ?>
-    <?php the_field( 'session_speaker_belong_link' ) ?>
-    <?php the_field( 'session_speaker_sns' ) ?>
-		<?php the_content(); ?>
+		<div class="row">
+			<div class="col-lg-6 col-xs-12">
+				<?php echo wp_kses_post( $contents ); ?>
+			</div>
+			<div class="col-lg-6 col-xs-12">
+				<h4 class="sub-title04">こんな方へ</h4>
+				<?php
+				if ( get_field( 'session_recommended_person' ) ) : ?>
+					<ul>
+					<?php while( has_sub_field( 'session_recommended_person' ) ) : ?>
+						<li><?php the_sub_field( 'session_recommended_person_text' ); ?></li>
+					<?php endwhile; ?>
+					</ul>
+				<?php endif; ?>
+				<table class="table table-bordered">
+					<tr>
+						<th>対象者</th>
+						<td>
+          <?php
+          $target_terms = get_the_terms( $session->ID, 'target' );
+          foreach ( $target_terms as $key => $target ) { ?>
+            <?php echo esc_html( $target->name );?>　
+          <?php
+          } ?>
+            </td>
+					</tr>
+					<tr>
+						<th>時間</th>
+						<td><?php wordfes2014_the_term( $post->ID, 'timezone', 'description' ); ?></td>
+					</tr>
+					<tr>
+						<th>教室</th>
+						<td><?php wordfes2014_the_term( $post->ID, 'classroom', 'description' ); ?></td>
+					</tr>
+					<tr>
+						<th>人数</th>
+						<td><?php
+            if ( get_field( 'session_persons' ) ) {
+              echo get_field( 'session_persons' );
+            } else {
+  						$classrooms = get_the_terms( $post->ID, 'classroom' );
+  						foreach ( $classrooms as $key => $classroom ) {
+
+  							echo get_field( 'classroom_parson', $classroom );
+  						}
+            }
+						?></td>
+					</tr>
+				</table>
+
+			</div>
+		</div>
+		<?php if ( $speaker_name && get_field( 'session_description' ) ) : ?>
+		<div class="speaker-block">
+			<h3 class="speaker-title">
+				<i class="glyphicon glyphicon-user"></i> スピーカー紹介
+			</h3>
+			<div class="speaker-contents clearfix">
+				<div class="col-lg-3 col-md-3 col-xs-12 text-left">
+					<?php
+          if ( has_post_thumbnail() ) {
+            the_post_thumbnail( 'full', array( 'class' => 'thumbnail img-responsive','style="margin-top: 20px"' ) );
+          } else{ ?>
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/subpage/no_speaker_image.png" alt="写真なし">
+          <?php
+          } ?>
+				</div>
+				<div class="col-lg-9 col-md-9 col-xs-12">
+					<h4><?php echo esc_html( $speaker_name )  ?></h4>
+					<div class="social-icon">
+						<?php
+						if ( $facebook ) : ?>
+							<a href="<?php echo esc_url( $facebook ) ?>" target="_blank" class="facebook-icon">Facebook</a>
+						<?php
+						endif;
+						if ( $twitter ) : ?>
+							<a href="<?php echo esc_url( $twitter ); ?>" target="_blank" class="twitter-icon">Twitter</a>
+						<?php
+						endif;
+            if ( $website ) : ?>
+              <a href="<?php echo esc_url( $website ); ?>" target="_blank" class="website-icon">Website or Blog</a>
+            <?php
+            endif; ?>
+					</div>
+					所属 : <?php if ( $belong_link ) { ?><a target="_blank" href="<?php echo $belong_link; ?>"><?php }  the_field( 'session_speaker_belong' ); if ( $belong_link ) { ?></a><?php } ?><br>
+					<?php the_field( 'session_description' ) ?>
+				</div>
+			</div>
+		</div>
+		<?php endif; ?>
+		<?php
+		if ( get_field( 'session_server' ) ) : ?>
+
+
+		<?php
+		while( has_sub_field( 'session_server' ) ) :
+			$server_name                 = get_sub_field( 'session_server_name' );
+			$session_server_belong       = get_sub_field( 'session_server_belong' );
+			$session_server_belong_link  = get_sub_field( 'session_speaker_belong_link' );
+			$session_server_profile      = get_sub_field( 'session_server_profile' );
+			$session_server_facebook     = get_sub_field( 'session_server_facebook' );
+			$session_server_twitter      = get_sub_field( 'session_server_twitter' );
+			$session_server_website      = get_sub_field( 'session_server_website' );
+			$session_server_image        = get_sub_field( 'session_server_image' );
+		?>
+
+		<div class="speaker-block">
+			<h3 class="speaker-title">
+				<i class="glyphicon glyphicon-user"></i> 進行役紹介
+			</h3>
+			<div class="speaker-contents clearfix">
+				<div class="col-lg-3 col-md-3 col-xs-12 text-left">
+					<?php echo wp_get_attachment_image( $session_server_image, 'full' ); ?>
+				</div>
+				<div class="col-lg-9 col-md-9 col-xs-12">
+					<h4><?php echo esc_html( $server_name )  ?></h4>
+					<div class="social-icon">
+						<?php
+						if ( $session_server_facebook ) : ?>
+							<a href="<?php echo esc_url( $session_server_facebook ) ?>" target="_blank" class="facebook-icon">Facebook</a>
+						<?php
+						endif;
+						if ( $session_server_twitter ) : ?>
+							<a href="<?php echo esc_url( $session_server_twitter ); ?>" target="_blank" class="twitter-icon">Twitter</a>
+						<?php
+						endif;
+            if ( $session_server_website ) : ?>
+              <a href="<?php echo esc_url( $session_server_website ); ?>" target="_blank" class="website-icon">Website or Blog</a>
+            <?php
+            endif; ?>
+					</div>
+          所属 : <?php if ( $session_server_belong_link ) { ?><a target="_blank" href="<?php echo $session_server_belong_link; ?>"><?php }; echo $session_server_belong; if ( $session_server_belong_link ) { ?></a><?php } ?><br>
+					<?php echo $session_server_profile; ?>
+				</div>
+			</div>
+		</div>
+
+		<?php endwhile; ?>
+
+  <?php endif; ?>
 		<?php
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . __( 'Pages:', 'wordfes2014' ),
@@ -44,40 +176,13 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php
-			/* translators: used between list items, there is a space after the comma */
-			$category_list = get_the_category_list( __( ', ', 'wordfes2014' ) );
+  <?php the_content(); ?>
 
-			/* translators: used between list items, there is a space after the comma */
-			$tag_list = get_the_tag_list( '', __( ', ', 'wordfes2014' ) );
-
-			if ( ! wordfes2014_categorized_blog() ) {
-				// This blog only has 1 category so we just need to worry about tags in the meta text
-				if ( '' != $tag_list ) {
-					$meta_text = __( 'This entry was tagged %2$s. Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', 'wordfes2014' );
-				} else {
-					$meta_text = __( 'Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', 'wordfes2014' );
-				}
-
-			} else {
-				// But this blog has loads of categories so we should probably display them here
-				if ( '' != $tag_list ) {
-					$meta_text = __( 'This entry was posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', 'wordfes2014' );
-				} else {
-					$meta_text = __( 'This entry was posted in %1$s. Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', 'wordfes2014' );
-				}
-
-			} // end check for categories on this blog
-
-			printf(
-				$meta_text,
-				$category_list,
-				$tag_list,
-				get_permalink()
-			);
-		?>
-
-		<?php edit_post_link( __( '編集', 'wordfes2014' ), '<span class="edit-link btn btn-default">', '</span>' ); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
+
+<?php if ( is_user_logged_in() ) { ?>
+	<footer class="entry-footer">
+	  <?php edit_post_link( __( '編集', 'wordfes2014' ), '<span class="edit-link btn btn-default">', '</span>' ); ?>
+	</footer><!-- .entry-footer -->
+<?php
+} ?>
