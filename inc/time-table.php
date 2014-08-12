@@ -91,7 +91,10 @@ function print_time_table()
 
 		<tr>
 			<th>11:45-13:15</th>
-			<td colspan="5" class="rest">昼食休憩（90分）</td>
+			<td class="rest"><a href="http://2014.wordfes.org/sessions/lunch-meetup/">Lunch MeetUp!</a></td>
+			<td class="rest">昼食休憩</td>
+			<td class="rest"><a href="http://2014.wordfes.org/sessions/lunch-workshop/">ランチタイムハンズオン</a></td>
+			<td colspan="2" class="rest">昼食休憩（90分）</td>
 		</tr>
 
 		<tr class="session2">
@@ -166,6 +169,16 @@ function print_time_table()
 		</tr>
 	</table>
 	</section>
+	
+		<table class="table table-bordered time-table">
+		<col class="col">
+		<tr>
+			<th scope="row">8/31 (日)<br>11:00-</th>
+			<td><a href="http://2014.wordfes.org/inuyama-tour/">2日目ツアー：国宝犬山城 城下町ぶらり食べあるき</a></td>
+		</tr>
+	</table>
+	</section>
+
 <?php
 
 }
