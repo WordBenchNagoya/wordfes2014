@@ -45,6 +45,7 @@ function print_time_table()
 							<?php
 							echo esc_html( get_field( 'classroom_parson', $stage ) ); ?>
 							)
+							<br>
 							</small>
 							</th>
 					<?php
@@ -64,6 +65,21 @@ function print_time_table()
 				?>
 			</tr>
 		</thead>
+		<tr class="hidden-sm hidden-xs">
+			<th>
+			</th>
+			<td class="stage1">
+			<a href="http://www.ustream.tv/channel/WordBench-Nagoya" target="_blank">Ustream (ネット中継)</a>
+			</td>
+			<td class="stage2">
+			<a href="http://www.ustream.tv/channel/WordFes" target="_blank">Ustream (ネット中継)</a>
+			</td>
+			<td class="stage3">
+			<a href="http://www.ustream.tv/channel/WordFes2" target="_blank">Ustream (ネット中継)</a>
+			</td>
+			<td colspan="2">
+			</td>
+		</tr>
 
 		<tr>
 			<th>10:00-</th>
