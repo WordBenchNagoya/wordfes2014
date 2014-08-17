@@ -77,10 +77,16 @@ function print_time_table()
 			<td class="stage3">
 			<a href="http://www.ustream.tv/channel/WordFes2" target="_blank">Ustream (ネット中継)</a>
 			</td>
+		</tr>
+		<tr class="hidden-sm hidden-xs">
+			<th>
+			</th>
+			<td colspan="3">
+			<small>※ Ustream 放送や YouTube の詳細は<a href="http://2014.wordfes.org/topics/ustream-youtube/">こちらをご覧ください</a>。</small>
+			</td>
 			<td colspan="2">
 			</td>
 		</tr>
-
 		<tr>
 			<th>10:00-</th>
 			<td colspan="5" class="rest">開場</td>
