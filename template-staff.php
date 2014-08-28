@@ -1,7 +1,8 @@
 <?php
-/**
- * スタッフ紹介ページ
- */
+/*
+Template Name: スタッフ一覧テンプレート
+*/
+
 
   /**
    * The WordPress Query class.
@@ -26,8 +27,6 @@
   );
 
   $query = new WP_Query( $args );
-
-
 ?>
 
   <section id="primary" class="content-area post-contents">
