@@ -185,11 +185,6 @@ function top_entry_twitter_icon(){
               }
 							?>
 							<?php
-							// do_action( 'camptix_attendees_shortcode_item', $attendee_id );
-
-							// clean_post_cache( $attendee_id );
-							// wp_cache_delete( $attendee_id, 'posts');
-							// wp_cache_delete( $attendee_id, 'post_meta');
               $facebook_id = '';
               $facebook_info = '';
               $twitter_id = '';
@@ -204,7 +199,7 @@ function top_entry_twitter_icon(){
 				</ul>
 
 				<div class="entry-summary">
-					<span class="current"> <?php $count = wp_count_posts( 'tix_attendee' ); echo ( $count->publish + $count->pending );?></span> / 252 ENTRY <a class="btn btn-warning btn-lg" href="<?php echo site_url( '/entry/' ) ?>"><i class="glyphicon glyphicon-flag"></i> ENTRY</a>
+					<span class="current"> <?php $count = wp_count_posts( 'tix_attendee' ); echo ( $count->publish + $count->pending );?></span> / 253 ENTRY <a class="btn btn-warning btn-lg" href="<?php echo site_url( '/entry/' ) ?>"><i class="glyphicon glyphicon-flag"></i> ENTRY</a>
 				</div>
 			</div>
 		</div>

@@ -149,7 +149,7 @@ function wordfes2014_post_type_init() {
 		'capability_type' => 'page',
 		'has_archive' => true,
 		'hierarchical' => false,
-		'supports' => array( 'title','thumbnail', ),
+		'supports' => array( 'title','thumbnail','custom-fields' ),
 	);
 
 	register_post_type( 'staff', $staff_args );

@@ -22,14 +22,12 @@
 	display:block;
 	padding-top:5px;
 }
-
 .entry-content .main-block .inuyama_box.iym_b1{
-	background-image : url(http://2014.wordfes.org/wp-content/uploads/2014/08/omoide_main_image.jpg);
+	background-image : url(http://2014.wordfes.org/wp-content/themes/wordfes2014/assets/img/subpage/omoide_main_image.jpg);
 }
 .inuyama_box p{
 	font-size:15px;
 }
-
 .entry-content .main-block .inuyama_box{
 	background-color : #fff;
 	background-repeat : no-repeat;
@@ -47,7 +45,6 @@
 .entry-content .main-block .inuyama_box .texts .wp-image-1332{
 	margin-top: 50px;
 }
-
 .entry-content .main-block .inuyama_box .texts img{
 	display : block;
 	margin : 30px auto;
@@ -59,7 +56,6 @@
 }
 .entry-content .main-block .inuyama_box .texts p{
 }
-
 .entry-content .main-block .iym_b2 {
 	width : 100%;
 	margin:1px 0 1px 0;
@@ -83,12 +79,10 @@
 	float : right;
 	width : 50%;
 }
-
 .entry-content .main-block .iym_b2 .texts h3{
 		text-align : center;
 		margin:3px;
 }
-
 .entry-content .main-block #ar5 {
 	width : 100%;
 	position : relative;
@@ -101,7 +95,6 @@
 .entry-content .main-block .koutei img{
 	display : block;
 	margin : 5px auto 0 auto;
-
 }
 .entry-content .main-block iframe{
 	width : 50%;
@@ -120,10 +113,9 @@
 .entry-content .main-block img.wp-image-1329 {
 	margin-top:25px;
 }
-
-
-
-
+.entry-content .main-block div.sharedaddy {
+	padding: 0 0 20px 20px;
+}
 @media ( min-width : 1200px ){ /* 1137px */
 	.inuyama_box.iym_b1{
 		height : 849px;
@@ -139,7 +131,7 @@
 		padding-right: 85px;
 	}
 	.entry-content .main-block .inuyama_box.iym_b2{
-		background-image : url(http://2014.wordfes.org/wp-content/uploads/2014/08/omoide_2nd_img.jpg);
+		background-image : url(http://2014.wordfes.org/wp-content/themes/wordfes2014/assets/img/subpage/omoide_2nd_img.jpg);
 		background-position : left middle;
 		background-repeat : no-repeat;
 	}
@@ -189,12 +181,10 @@
 	.entry-content .main-block .inuyama_box.iym_b2 img#nemesis{
 		width : 50%;
 		height : auto;
-
 	}
 	.entry-content .main-block iframe {
 		height: 408px;
 	}
-
 }
 @media ( max-width : 991px ) { /* 690px BRAKE*/
 	.entry-content .main-block .inuyama_box.iym_b1{
@@ -210,12 +200,9 @@
 		background-color:#fff;
 		padding-bottom: 10px;
 	}
-
-
 	.entry-content .main-block .inuyama_box.iym_b2{
 		padding:0;
 	}
-
 	.entry-content .main-block .inuyama_box.iym_b2 .texts h3{
 		padding:0 auto;
 	}
@@ -225,7 +212,6 @@
 	.entry-content .main-block .inuyama_box.iym_b2 .texts p{
 		padding : 5px ;
 	}
-
 	.entry-content .main-block .inuyama_box.iym_b2 img{
 		width:100%;
 		height:auto;
@@ -244,6 +230,7 @@
 		width:100%;
 	}
 	.entry-content .main-block .iym_b2 .texts p#waltari{ border:0; }
+}
 @media ( max-width : 767px ) { /* free */
 	.entry-content .main-block .inuyama_box.iym_b1{
 		width:100%;
@@ -257,63 +244,8 @@
 @media ( min-width : 320px ) and ( max-width : 556px ) {
 	.entry-content .main-block .inuyama_box.iym_b1{
 		padding-bottom:250px;
-}
+	}
 	.entry-content .main-block .inuyama_box .texts {
 		padding : 5px 10px;
 	}
-
-
-
-
-
-
-
-/*
-@media ( min-width : 1292px ){
-	.entry-content .main-block .inuyama_box .texts{
-		width : 50%;
-		padding : 40px 80px;
-	}
 }
-
-@media ( max-width : 1291px ) {
-	.entry-content .main-block .iym_b1 .texts{
-		width : 50%;
-	}
-
-	.entry-content .main-block .iym_b2 .texts{
-		width : 569px;
-		margin : 10px auto;
-		background-color : #fff;
-	}
-	.entry-content .main-block .iym_b2{
-		padding-bottom : 225px;
-		background-position : center bottom;
-	}
-	.entry-content .main-block #ar5{
-		clear : both;
-		width : 100%;
-	}
-@media ( max-width : 768px ) {
-	.entry-content .main-block .iym_b1{
-		width : 100%;
-		padding-bottom : 300px;
-		background-position : center middle;
-	}
-	.entry-content .main-block .iym_b1 .texts{
-		width : 100%;
-		padding : 10px 100px;
-	}
-
-	.entry-content .main-block .iym_b2 .texts{
-		width : 100%;
-		margin : 10px auto;
-		background-color : #fff;
-	}
-	.entry-content .main-block .iym_b2{
-		padding-bottom : 225px;
-		background-position : center bottom;
-	}
-
-}*/
-

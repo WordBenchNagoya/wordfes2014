@@ -69,28 +69,39 @@ endif;
 					<?php the_field( 'top_description' ) ?>
 				</div>
 				<div class="col-md-6 col-xs-12" id="livestage">
-					<div class="slider">
+					<div class="slick slider slick-slider">
+
 
 					<?php
 					$css = array();
-					if ( get_field( 'top_slider' ) ):
-						$i = 1;
-						while ( has_sub_field( 'top_slider' ) ) :
-							$slider_bg = wp_get_attachment_image_src( get_sub_field( 'top_slider_background_image' ), 'full' );
-							$style = 'background-image: url(' . esc_url( $slider_bg['0']  ) . ' );background-color: ' . get_sub_field( 'top_slider_background_color' );
+					if ( $sliders = get_field( 'top_slider' ) ):
+            $delete_keys = array_rand( $sliders, 8 );
+            foreach ( $delete_keys as $delete_key ) {
+              unset( $sliders[$delete_key] );
+            }
+            foreach ( $sliders as $key => $slider ) :
+              $i = rand(0,10);
+							$slider_bg = wp_get_attachment_image_src( $slider['top_slider_background_image'], 'full' );
+							$style = 'background-image: url(' . esc_url( $slider_bg['0']  ) . ' );background-color: ' .$slider['top_slider_background_color'];
+							$link = $slider['slider_link'];
+							$display = $slider['slider_display'];
+							if ( '0' === $display || ( '2' === $display && ! is_user_logged_in() ) ) {
+								continue;
+							}
 						?>
-
 						<div class="slider-contents slider-image slider-contents<?php echo $i;?>" style="<?php echo $style; ?>">
 
 							<?php
-							the_sub_field( 'top_slider_contents' );
-							$css[] = get_sub_field( 'top_slider_css' ); ?>
+							if ( $link ) echo '<a href="' . $link . '" class="slider-link">';
+							$slider['top_slider_contents'];
+							$css[] = $slider['top_slider_css'];
+							if ( $link ) echo '</a>';
+							?>
 
 						</div>
 
 						<?php
-						$i++;
-						endwhile;
+						endforeach;
 						if ( $css && is_array( $css ) ) {
 							$code = implode( ' ', $css );
 							echo '<style>' . $code . '</style>';
@@ -123,13 +134,13 @@ endif;
 				<h2>SCHEDULE</h2>
 
 				<?php echo get_post_meta( $post->ID, 'top_schedule', true ) ?>
-          <?php
-          if ( is_user_logged_in() ) { ?>
-            <div class="edit-link text-center">
-              <a href="<?php echo admin_url( '/post.php?post=509&action=edit#acf-top_slider' ) ?>" class="btn btn-success"><div class="dashicons dashicons-admin-generic"></div> スケジュールを編集</a>
-            </div>
-          <?php
-          } ?>
+					<?php
+					if ( is_user_logged_in() ) { ?>
+						<div class="edit-link text-center">
+							<a href="<?php echo admin_url( '/post.php?post=509&action=edit#acf-top_slider' ) ?>" class="btn btn-success"><div class="dashicons dashicons-admin-generic"></div> スケジュールを編集</a>
+						</div>
+					<?php
+					} ?>
 			</div>
 		</div>
 	</section><!-- /schedule -->
@@ -189,5 +200,5 @@ endif;
 
 
 	<?php
-	do_action( 'get_footer' );
-	get_template_part( 'modules/footer' );
+do_action( 'get_footer' );
+get_template_part( 'modules/footer' );

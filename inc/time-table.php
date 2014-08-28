@@ -94,7 +94,7 @@ function print_time_table()
 		</tr>
 
 		<tr>
-			<th>10:45-11:00</th>
+			<th>10:40-11:00</th>
 			<td>開会式</td>
 			<td></td>
 			<td></td>

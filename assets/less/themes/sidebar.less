@@ -2,42 +2,82 @@
  * BreadCrumbs
  */
 .sidebar{
-  margin-top: 61px ;
-  margin-bottom: 36px;
-  .camptix_widgets{
-  	padding-top: 5px;
-  	padding-left: 5px;
-  	padding-right: 5px;
-  	padding-bottom: 5px;
+	margin-top: 61px ;
+	margin-bottom: 36px;
+	.widget_nav_menu{
+		margin-bottom: 33px;
+		.widget-title{
+			background: #3CB6C4;
+			color: #FFF;
+			text-align: center;
+			font-weight: normal;
+			margin-bottom: 0;
+			margin-top: 0;
+			line-height: 2.0em;
+			font-size: 18px;
+		}
+		ul{
+			li{
+				&.current-menu-item{
+					a{
+						background-color: lighten(#3CB6C4, 40%);
+						// border-left: 5px solid #FF0;
+					}
+				}
+				a{
+					display: block;
+					background-color: #FFFFFF;
+					line-height: 3.4em;
+					padding-left: 25px;
+					background-image: url(../img/common/arrow-sm.gif);
+					background-repeat: no-repeat;
+					background-position: 12px center;
+					margin-bottom: 1px;
+					text-align: left;
+					color: #252525;
+					font-size: 14px;
+					&:hover{
+						color: #3CB6C4;
+						text-decoration: none;
+					}
+				}
+			}
+		}
+	}
+	.camptix_widgets{
+		padding-top: 5px;
+		padding-left: 5px;
+		padding-right: 5px;
+		padding-bottom: 5px;
 		margin-bottom: 25px;
-  	background: #FFF;
-  	.widget-title{
-  		background: #FFFF00;
-  		color: #252525;
-  		margin-top: 0;
-  		text-align: center;
-  		font-size: 1.1em;
-  		font-weight: bold;
-  		line-height: 2.4em;
-  		font-weight: bold;
-  		margin-bottom: 0;
-  	}
-  	.participate-contents{
-  		background: #ECEBEC;
-  		color: #333;
-  		padding: 15px 20px 10px 20px;
-  		.participate-title{
+		background: #FFF;
+		.widget-title{
+			background: #FFFF00;
+			color: #252525;
+			margin-top: 0;
+			text-align: center;
+			font-size: 1.1em;
+			font-weight: bold;
+			line-height: 2.4em;
+			font-weight: bold;
+			margin-bottom: 0;
+		}
+		.participate-contents{
+			background: #ECEBEC;
+			color: #333;
+			padding: 15px 20px 10px 20px;
+			.participate-title{
 				font-size: 1.15em;
 				// border-left: 3px solid #2DADBE;
 				// padding-left: 0.7em;
 				margin-top: 0;
-  		}
-  		.table{
-  			margin-bottom: 20px;
-  			background: #FFF;
-  			border: 1px solid #D8D8D8;
-  		}
-  	}
-  }
+			}
+			.table{
+				margin-bottom: 20px;
+				background: #FFF;
+				border: 1px solid #D8D8D8;
+			}
+		}
+	}
 }
 

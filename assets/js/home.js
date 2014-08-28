@@ -466,3 +466,16 @@ function handleComplete() {
   });
 
 }
+$(function () {
+	$('#livestage .slick').slick({
+		autoplay: true,
+		autoplaySpeed: 3000,
+		dots: true,
+		speed:680,
+		arrows:false,
+		infinite: true,
+		slidesToShow: true,
+		slidesToScroll: true,
+	  // slide: '.slider-contents'
+	});
+});
