@@ -16,14 +16,17 @@ Template Name: スタッフ一覧テンプレート
 
     'post_status' => array(
       'publish',
-      'pending',
-      'draft',
-      'auto-draft',
+      //'pending',
+      //'draft',
+      //'auto-draft',
       'future',
       'private',
-      'inherit',
-      'trash'
+      'inherit'
+      //'trash'
       ),
+     'posts_per_page' => '50',
+     'orderby' => 'date',
+     'orderby' => 'ASC'
   );
 
   $query = new WP_Query( $args );
