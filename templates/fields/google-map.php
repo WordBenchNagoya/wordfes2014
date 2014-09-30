@@ -17,18 +17,17 @@ var map;
 <?php $code = get_sub_field( 'google_map' );?>
 var myLatLang = new google.maps.LatLng(<?php echo esc_attr( $code['lat'] . ',' . $code['lng'] ); ?>);
 function initialize() {
-var mapOptions = {
-zoom: 15,
-center: myLatLang,
-mapTypeId: google.maps.MapTypeId.ROADMAP
-};
-map = new google.maps.Map(document.getElementById('map-canvas<?php echo esc_attr( get_the_ID() );?>'),
-mapOptions);
-var marker = new google.maps.Marker({
-position: myLatLang,
-map: map,
-title:"Hello World!"
-});
+	var mapOptions = {
+		zoom: 15,
+		center: myLatLang,
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+	};
+	map = new google.maps.Map(document.getElementById('map-canvas<?php echo esc_attr( get_the_ID() );?>'), mapOptions);
+	var marker = new google.maps.Marker({
+		position: myLatLang,
+		map: map,
+		title:"Hello World!"
+	});
 };
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>

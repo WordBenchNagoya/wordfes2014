@@ -25,21 +25,21 @@
 		// Get Sponsor Kind
 		$sponsor_temrs = get_terms( 'sponsor_category', array( 'hide_empty' => false, 'orderby' => 'order', 'order' => 'ASC') );
 
-    if ( is_user_logged_in() ) {
-      $post_status = array( 'draft','publish' );
-    } else {
-      $post_status = array( 'publish' );
-    }
+		if ( is_user_logged_in() ) {
+			$post_status = array( 'draft','publish' );
+		} else {
+			$post_status = array( 'publish' );
+		}
 
 		foreach ( $sponsor_temrs as $key => $sponsor_term ){
 
 
-  		// Set sponsor Kind to posts settings
+			// Set sponsor Kind to posts settings
 			$args = array(
 				'post_type' => 'sponsored',
 				'post_status' => $post_status,
 				'posts_per_page' => -1,
-        'orderby' => 'title',
+				'orderby' => 'title',
 				'tax_query' => array(
 					array(
 						'taxonomy' => 'sponsor_category',
@@ -78,7 +78,7 @@
 
 			<?php
 			endif;
-      wp_reset_query();
+			wp_reset_query();
 
 		} ?>
 		<?php if ( is_user_logged_in() ) { ?>

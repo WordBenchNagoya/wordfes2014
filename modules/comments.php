@@ -14,8 +14,6 @@
 if ( post_password_required() ) {
 	return;
 }
-
-
 do_action( 'get_comments_template' );
 
 if ( have_comments() ) : ?>

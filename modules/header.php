@@ -26,15 +26,15 @@
 					<a href="https://twitter.com/share" class="twitter-share-button" data-via="wbNagoya" data-lang="">ツイートする</a>
 				</div>
 			</div>
-	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-	        <span class="sr-only">Toggle navigation</span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </button>
-	    </div>
-	    <nav class="collapse navbar-collapse" role="navigation">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<nav class="collapse navbar-collapse" role="navigation">
 				<?php
 				 if ( has_nav_menu( 'primary' ) ) :
 						wp_nav_menu(

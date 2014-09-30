@@ -18,11 +18,11 @@
 
 
 if ( ! function_exists( 'get_avatar_url' ) ) {
-  function get_avatar_url( $author_id, $size = '' ) {
-      $get_avatar = get_avatar( $author_id, $size );
-      preg_match("/src='(.*?)'/i", $get_avatar, $matches);
-      return ( $matches[1] );
-  }
+	function get_avatar_url( $author_id, $size = '' ) {
+			$get_avatar = get_avatar( $author_id, $size );
+			preg_match("/src='(.*?)'/i", $get_avatar, $matches);
+			return ( $matches[1] );
+	}
 }
 
 // get post type "attendees"
@@ -49,11 +49,11 @@ function top_entry_twitter_icon(){
 				),
 			),
 		) );
-    $facebook_question_ids = array(
-      '521',
-      '523',
-      '525',
-    );
+		$facebook_question_ids = array(
+			'521',
+			'523',
+			'525',
+		);
 		foreach ( $questions as $key => $question ) {
 			$question_ids[] = $question->ID;
 		}
@@ -152,42 +152,42 @@ function top_entry_twitter_icon(){
 									$twitter_id =  $questions[$question_id];
 								}
 							}
-              foreach ( $facebook_question_ids as $key => $facebook_id ) {
+							foreach ( $facebook_question_ids as $key => $facebook_id ) {
 
-                if ( $questions[$facebook_id] ) {
-                  $facebook_info =  $questions[$facebook_id];
-                }
-              }
+								if ( $questions[$facebook_id] ) {
+									$facebook_info =  $questions[$facebook_id];
+								}
+							}
 
-              $facebook_id = '';
-              if ( $facebook_info ) {
-                if ( strstr( $facebook_info, 'https://www.facebook.com/') ) {
-                  $facebook_id = str_replace( 'https://www.facebook.com/', '', $facebook_info );
-                } else {
-                  $facebook_id = $facebook_info;
-                }
-              }
+							$facebook_id = '';
+							if ( $facebook_info ) {
+								if ( strstr( $facebook_info, 'https://www.facebook.com/') ) {
+									$facebook_id = str_replace( 'https://www.facebook.com/', '', $facebook_info );
+								} else {
+									$facebook_id = $facebook_info;
+								}
+							}
 
-              $matches = array();
-              $screen_name = false;
+							$matches = array();
+							$screen_name = false;
 
-              if ( preg_match( '#^@?([a-z0-9_]+)$#i', $twitter_id, $matches ) ){
-                $screen_name = $matches[1];
-              } elseif ( preg_match( '#^(https?://)?(www\.)?twitter\.com/(\#!/)?([a-z0-9]+)$#i', $twitter_id, $matches ) ){
-                $screen_name = $matches[4];
-              }
-              if ( $screen_name ) {
-                echo '<li><a class="push" href="http://twitter.com/' . $screen_name . '/" target="_blank"><img src="http://www.paper-glasses.com/api/twipi/' . $screen_name . '/bigger/" class="img-responsive img-circle" ></a></li>';
-              } else if( $facebook_id ){
-                echo '<li><a class="push" href="https://www.facebook.com/' . $facebook_id . '/" target="_blank"><span style="display: block;background-image: url(https://graph.facebook.com/' . $facebook_id . '/picture/?type=normal); background-size: 100% auto;width: 70px;height: 70px;" class="img-responsive img-circle" ></span></a></li>';
-              } else {
-                echo '<li><img src="' . get_avatar_url( get_post_meta( $attendee_id, 'tix_email', true ) ) . '" class="img-responsive img-circle"  width="70" height="70" /></li>';
-              }
+							if ( preg_match( '#^@?([a-z0-9_]+)$#i', $twitter_id, $matches ) ){
+								$screen_name = $matches[1];
+							} elseif ( preg_match( '#^(https?://)?(www\.)?twitter\.com/(\#!/)?([a-z0-9]+)$#i', $twitter_id, $matches ) ){
+								$screen_name = $matches[4];
+							}
+							if ( $screen_name ) {
+								echo '<li><a class="push" href="http://twitter.com/' . $screen_name . '/" target="_blank"><img src="http://www.paper-glasses.com/api/twipi/' . $screen_name . '/bigger/" class="img-responsive img-circle" ></a></li>';
+							} else if( $facebook_id ){
+								echo '<li><a class="push" href="https://www.facebook.com/' . $facebook_id . '/" target="_blank"><span style="display: block;background-image: url(https://graph.facebook.com/' . $facebook_id . '/picture/?type=normal); background-size: 100% auto;width: 70px;height: 70px;" class="img-responsive img-circle" ></span></a></li>';
+							} else {
+								echo '<li><img src="' . get_avatar_url( get_post_meta( $attendee_id, 'tix_email', true ) ) . '" class="img-responsive img-circle"  width="70" height="70" /></li>';
+							}
 							?>
 							<?php
-              $facebook_id = '';
-              $facebook_info = '';
-              $twitter_id = '';
+							$facebook_id = '';
+							$facebook_info = '';
+							$twitter_id = '';
 							$printed++;
 
 						} // foreach ?>

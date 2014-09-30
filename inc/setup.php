@@ -85,7 +85,7 @@ function wordfes2014_display_sidebar(){
 	 * ワンカラムが選択されているか、404ページの時は非表示
 	 */
 	if ( 'one_column' === get_field( 'template_layout' ) ||
-	    is_404() ) {
+			is_404() ) {
 		$display = false;
 	}
 
@@ -116,7 +116,7 @@ function wordfes2014_main_class(){
 
 add_action( 'wp_enqueue_scripts', 'themename_scripts' );
 function themename_scripts() {
-    wp_enqueue_style( 'themename-style', get_stylesheet_uri(), array( 'dashicons' ), '1.0' );
+		wp_enqueue_style( 'themename-style', get_stylesheet_uri(), array( 'dashicons' ), '1.0' );
 }
 
 
@@ -225,143 +225,143 @@ function print_page_css(){
 add_filter( 'post_gallery', 'wordfes2014_gallery_shortcode_filter', 0, 2 );
 function wordfes2014_gallery_shortcode_filter( $empty, $attr ) {
 
-  $post = get_post();
+	$post = get_post();
 
-  static $instance = 0;
-  $instance++;
+	static $instance = 0;
+	$instance++;
 
-  if ( ! empty( $attr['ids'] ) ) {
-    // 'ids' is explicitly ordered, unless you specify otherwise.
-    if ( empty( $attr['orderby'] ) )
-      $attr['orderby'] = 'post__in';
-    $attr['include'] = $attr['ids'];
-  }
+	if ( ! empty( $attr['ids'] ) ) {
+		// 'ids' is explicitly ordered, unless you specify otherwise.
+		if ( empty( $attr['orderby'] ) )
+			$attr['orderby'] = 'post__in';
+		$attr['include'] = $attr['ids'];
+	}
 
-  // We're trusting author input, so let's at least make sure it looks like a valid orderby statement
-  if ( isset( $attr['orderby'] ) ) {
-    $attr['orderby'] = sanitize_sql_orderby( $attr['orderby'] );
-    if ( !$attr['orderby'] )
-      unset( $attr['orderby'] );
-  }
+	// We're trusting author input, so let's at least make sure it looks like a valid orderby statement
+	if ( isset( $attr['orderby'] ) ) {
+		$attr['orderby'] = sanitize_sql_orderby( $attr['orderby'] );
+		if ( !$attr['orderby'] )
+			unset( $attr['orderby'] );
+	}
 
 
-  // $html5 = current_theme_supports( 'html5', 'gallery' );
-  $html5 = false;
+	// $html5 = current_theme_supports( 'html5', 'gallery' );
+	$html5 = false;
 
-  extract(shortcode_atts(array(
-    'order'      => 'ASC',
-    'orderby'    => 'menu_order ID',
-    'id'         => $post ? $post->ID : 0,
-    'itemtag'    => $html5 ? 'figure'     : 'dl',
-    'icontag'    => $html5 ? 'div'        : 'dt',
-    'captiontag' => $html5 ? 'figcaption' : 'dd',
-    'columns'    => 3,
-    'size'       => 'full',
-    'include'    => '',
-    'exclude'    => '',
-    'link'       => ''
-  ), $attr, 'gallery'));
+	extract(shortcode_atts(array(
+		'order'      => 'ASC',
+		'orderby'    => 'menu_order ID',
+		'id'         => $post ? $post->ID : 0,
+		'itemtag'    => $html5 ? 'figure'     : 'dl',
+		'icontag'    => $html5 ? 'div'        : 'dt',
+		'captiontag' => $html5 ? 'figcaption' : 'dd',
+		'columns'    => 3,
+		'size'       => 'full',
+		'include'    => '',
+		'exclude'    => '',
+		'link'       => ''
+	), $attr, 'gallery'));
 
-  $id = intval($id);
-  if ( 'RAND' == $order )
-    $orderby = 'none';
+	$id = intval($id);
+	if ( 'RAND' == $order )
+		$orderby = 'none';
 
-  if ( !empty($include) ) {
-    $_attachments = get_posts( array('include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby) );
+	if ( !empty($include) ) {
+		$_attachments = get_posts( array('include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby) );
 
-    $attachments = array();
-    foreach ( $_attachments as $key => $val ) {
-      $attachments[$val->ID] = $_attachments[$key];
-    }
-  } elseif ( !empty($exclude) ) {
-    $attachments = get_children( array('post_parent' => $id, 'exclude' => $exclude, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby) );
-  } else {
-    $attachments = get_children( array('post_parent' => $id, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby) );
-  }
+		$attachments = array();
+		foreach ( $_attachments as $key => $val ) {
+			$attachments[$val->ID] = $_attachments[$key];
+		}
+	} elseif ( !empty($exclude) ) {
+		$attachments = get_children( array('post_parent' => $id, 'exclude' => $exclude, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby) );
+	} else {
+		$attachments = get_children( array('post_parent' => $id, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby) );
+	}
 
-  if ( empty($attachments) )
-    return '';
+	if ( empty($attachments) )
+		return '';
 
-  if ( is_feed() ) {
-    $output = "\n";
-    foreach ( $attachments as $att_id => $attachment )
-      $output .= wp_get_attachment_link($att_id, $size, true) . "\n";
-    return $output;
-  }
+	if ( is_feed() ) {
+		$output = "\n";
+		foreach ( $attachments as $att_id => $attachment )
+			$output .= wp_get_attachment_link($att_id, $size, true) . "\n";
+		return $output;
+	}
 
-  $itemtag = tag_escape($itemtag);
-  $captiontag = tag_escape($captiontag);
-  $icontag = tag_escape($icontag);
-  $valid_tags = wp_kses_allowed_html( 'post' );
-  if ( ! isset( $valid_tags[ $itemtag ] ) )
-    $itemtag = 'dl';
-  if ( ! isset( $valid_tags[ $captiontag ] ) )
-    $captiontag = 'dd';
-  if ( ! isset( $valid_tags[ $icontag ] ) )
-    $icontag = 'dt';
+	$itemtag = tag_escape($itemtag);
+	$captiontag = tag_escape($captiontag);
+	$icontag = tag_escape($icontag);
+	$valid_tags = wp_kses_allowed_html( 'post' );
+	if ( ! isset( $valid_tags[ $itemtag ] ) )
+		$itemtag = 'dl';
+	if ( ! isset( $valid_tags[ $captiontag ] ) )
+		$captiontag = 'dd';
+	if ( ! isset( $valid_tags[ $icontag ] ) )
+		$icontag = 'dt';
 
-  $columns = intval($columns);
-  $itemwidth = $columns > 0 ? floor(100/$columns) : 100;
-  $float = is_rtl() ? 'right' : 'left';
+	$columns = intval($columns);
+	$itemwidth = $columns > 0 ? floor(100/$columns) : 100;
+	$float = is_rtl() ? 'right' : 'left';
 
-  $selector = "gallery-{$instance}";
+	$selector = "gallery-{$instance}";
 
-  $gallery_style = $gallery_div = '';
+	$gallery_style = $gallery_div = '';
 
-  $size_class = sanitize_html_class( $size );
-  $gallery_div = "<div id='$selector' class='gallery galleryid-{$id} gallery-columns-{$columns} gallery-size-{$size_class}'>";
+	$size_class = sanitize_html_class( $size );
+	$gallery_div = "<div id='$selector' class='gallery galleryid-{$id} gallery-columns-{$columns} gallery-size-{$size_class}'>";
 
-  /**
-   * Filter the default gallery shortcode CSS styles.
-   *
-   * @since 2.5.0
-   *
-   * @param string $gallery_style Default gallery shortcode CSS styles.
-   * @param string $gallery_div   Opening HTML div container for the gallery shortcode output.
-   */
-  $output = apply_filters( 'gallery_style', $gallery_style . $gallery_div );
+	/**
+	 * Filter the default gallery shortcode CSS styles.
+	 *
+	 * @since 2.5.0
+	 *
+	 * @param string $gallery_style Default gallery shortcode CSS styles.
+	 * @param string $gallery_div   Opening HTML div container for the gallery shortcode output.
+	 */
+	$output = apply_filters( 'gallery_style', $gallery_style . $gallery_div );
 
-  $i = 0;
-  foreach ( $attachments as $id => $attachment ) {
-    if ( ! empty( $link ) && 'file' === $link )
-      $image_output = wp_get_attachment_link( $id, $size, false, false );
-    elseif ( ! empty( $link ) && 'none' === $link )
-      $image_output = wp_get_attachment_image( $id, $size, false );
-    else
-      $image_output = wp_get_attachment_link( $id, $size, true, false );
+	$i = 0;
+	foreach ( $attachments as $id => $attachment ) {
+		if ( ! empty( $link ) && 'file' === $link )
+			$image_output = wp_get_attachment_link( $id, $size, false, false );
+		elseif ( ! empty( $link ) && 'none' === $link )
+			$image_output = wp_get_attachment_image( $id, $size, false );
+		else
+			$image_output = wp_get_attachment_link( $id, $size, true, false );
 
-    $image_meta  = wp_get_attachment_metadata( $id );
+		$image_meta  = wp_get_attachment_metadata( $id );
 
-    $orientation = '';
-    if ( isset( $image_meta['height'], $image_meta['width'] ) )
-      $orientation = ( $image_meta['height'] > $image_meta['width'] ) ? 'portrait' : 'landscape';
+		$orientation = '';
+		if ( isset( $image_meta['height'], $image_meta['width'] ) )
+			$orientation = ( $image_meta['height'] > $image_meta['width'] ) ? 'portrait' : 'landscape';
 
-    $output .= "<{$itemtag} class='gallery-item'>";
-    $output .= "
-      <{$icontag} class='gallery-icon {$orientation}'>
-        $image_output
-      </{$icontag}>";
-    if ( $captiontag && trim($attachment->post_excerpt) ) {
-      $output .= "
-        <{$captiontag} class='wp-caption-text gallery-caption'>
-        " . wptexturize($attachment->post_excerpt) . "
-        </{$captiontag}>";
-    }
-    $output .= "</{$itemtag}>";
-    if ( ! $html5 && $columns > 0 && ++$i % $columns == 0 ) {
-      $output .= '<br style="clear: both" />';
-    }
-  }
+		$output .= "<{$itemtag} class='gallery-item'>";
+		$output .= "
+			<{$icontag} class='gallery-icon {$orientation}'>
+				$image_output
+			</{$icontag}>";
+		if ( $captiontag && trim($attachment->post_excerpt) ) {
+			$output .= "
+				<{$captiontag} class='wp-caption-text gallery-caption'>
+				" . wptexturize($attachment->post_excerpt) . "
+				</{$captiontag}>";
+		}
+		$output .= "</{$itemtag}>";
+		if ( ! $html5 && $columns > 0 && ++$i % $columns == 0 ) {
+			$output .= '<br style="clear: both" />';
+		}
+	}
 
-  if ( ! $html5 && $columns > 0 && $i % $columns !== 0 ) {
-    $output .= "
-      <br style='clear: both' />";
-  }
+	if ( ! $html5 && $columns > 0 && $i % $columns !== 0 ) {
+		$output .= "
+			<br style='clear: both' />";
+	}
 
-  $output .= "
-    </div>\n";
+	$output .= "
+		</div>\n";
 
-  return $output;
+	return $output;
 }
 
 /**
@@ -408,15 +408,15 @@ function wordfes2014_bootstrap_pagination( $html ){
 add_filter( 'mce_buttons_3', 'add_more_buttons' );
 
 function add_more_buttons( $buttons ) {
-  $buttons[] = 'hr';
-  $buttons[] = 'del';
-  $buttons[] = 'sub';
-  $buttons[] = 'sup';
-  $buttons[] = 'fontselect';
-  $buttons[] = 'fontsizeselect';
-  $buttons[] = 'cleanup';
-  $buttons[] = 'styleselect';
-  $buttons[] = 'backcolor';
+	$buttons[] = 'hr';
+	$buttons[] = 'del';
+	$buttons[] = 'sub';
+	$buttons[] = 'sup';
+	$buttons[] = 'fontselect';
+	$buttons[] = 'fontsizeselect';
+	$buttons[] = 'cleanup';
+	$buttons[] = 'styleselect';
+	$buttons[] = 'backcolor';
 
-  return $buttons;
+	return $buttons;
 }

@@ -32,16 +32,16 @@ $slide_data   = get_field( 'スライド' );
 		<div class="row">
 			<div class="col-lg-6 col-xs-12">
 				<?php
-          echo wp_kses_post( $contents );
-          if ( $slide_data ) { ?>
-            <p>
-              <a href="<?php the_field( 'スライド' );?>" target="_blank">
-              <img src="<?php echo get_template_directory_uri() ?>/assets/img/common/arrow-sm.gif" alt=""> スライドはこちら
-              </a>
-            </p>
-        <?php
-          }
-        ?>
+					echo wp_kses_post( $contents );
+					if ( $slide_data ) { ?>
+						<p>
+							<a href="<?php the_field( 'スライド' );?>" target="_blank">
+							<img src="<?php echo get_template_directory_uri() ?>/assets/img/common/arrow-sm.gif" alt=""> スライドはこちら
+							</a>
+						</p>
+				<?php
+					}
+				?>
 			</div>
 			<div class="col-lg-6 col-xs-12">
 				<h4 class="sub-title04">こんな方へ</h4>
@@ -57,13 +57,13 @@ $slide_data   = get_field( 'スライド' );
 					<tr>
 						<th>対象者</th>
 						<td>
-          <?php
-          $target_terms = get_the_terms( $session->ID, 'target' );
-          foreach ( $target_terms as $key => $target ) { ?>
-            <?php echo esc_html( $target->name );?>　
-          <?php
-          } ?>
-            </td>
+					<?php
+					$target_terms = get_the_terms( $session->ID, 'target' );
+					foreach ( $target_terms as $key => $target ) { ?>
+						<?php echo esc_html( $target->name );?>　
+					<?php
+					} ?>
+						</td>
 					</tr>
 					<tr>
 						<th>時間</th>
@@ -76,15 +76,15 @@ $slide_data   = get_field( 'スライド' );
 					<tr>
 						<th>人数</th>
 						<td><?php
-            if ( get_field( 'session_persons' ) ) {
-              echo get_field( 'session_persons' );
-            } else {
-  						$classrooms = get_the_terms( $post->ID, 'classroom' );
-  						foreach ( $classrooms as $key => $classroom ) {
+						if ( get_field( 'session_persons' ) ) {
+							echo get_field( 'session_persons' );
+						} else {
+							$classrooms = get_the_terms( $post->ID, 'classroom' );
+							foreach ( $classrooms as $key => $classroom ) {
 
-  							echo get_field( 'classroom_parson', $classroom );
-  						}
-            }
+								echo get_field( 'classroom_parson', $classroom );
+							}
+						}
 						?></td>
 					</tr>
 				</table>
@@ -99,12 +99,12 @@ $slide_data   = get_field( 'スライド' );
 			<div class="speaker-contents clearfix">
 				<div class="col-lg-3 col-md-3 col-xs-12 text-left">
 					<?php
-          if ( has_post_thumbnail() ) {
-            the_post_thumbnail( 'full', array( 'class' => 'thumbnail img-responsive','style="margin-top: 20px"' ) );
-          } else{ ?>
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/subpage/no_speaker_image.png" alt="写真なし">
-          <?php
-          } ?>
+					if ( has_post_thumbnail() ) {
+						the_post_thumbnail( 'full', array( 'class' => 'thumbnail img-responsive','style="margin-top: 20px"' ) );
+					} else{ ?>
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/subpage/no_speaker_image.png" alt="写真なし">
+					<?php
+					} ?>
 				</div>
 				<div class="col-lg-9 col-md-9 col-xs-12">
 					<h4><?php echo esc_html( $speaker_name )  ?></h4>
@@ -118,10 +118,10 @@ $slide_data   = get_field( 'スライド' );
 							<a href="<?php echo esc_url( $twitter ); ?>" target="_blank" class="twitter-icon">Twitter</a>
 						<?php
 						endif;
-            if ( $website ) : ?>
-              <a href="<?php echo esc_url( $website ); ?>" target="_blank" class="website-icon">Website or Blog</a>
-            <?php
-            endif; ?>
+						if ( $website ) : ?>
+							<a href="<?php echo esc_url( $website ); ?>" target="_blank" class="website-icon">Website or Blog</a>
+						<?php
+						endif; ?>
 					</div>
 					所属 : <?php if ( $belong_link ) { ?><a target="_blank" href="<?php echo $belong_link; ?>"><?php }  the_field( 'session_speaker_belong' ); if ( $belong_link ) { ?></a><?php } ?><br>
 					<?php the_field( 'session_description' ) ?>
@@ -165,12 +165,12 @@ $slide_data   = get_field( 'スライド' );
 							<a href="<?php echo esc_url( $session_server_twitter ); ?>" target="_blank" class="twitter-icon">Twitter</a>
 						<?php
 						endif;
-            if ( $session_server_website ) : ?>
-              <a href="<?php echo esc_url( $session_server_website ); ?>" target="_blank" class="website-icon">Website or Blog</a>
-            <?php
-            endif; ?>
+						if ( $session_server_website ) : ?>
+							<a href="<?php echo esc_url( $session_server_website ); ?>" target="_blank" class="website-icon">Website or Blog</a>
+						<?php
+						endif; ?>
 					</div>
-          所属 : <?php if ( $session_server_belong_link ) { ?><a target="_blank" href="<?php echo $session_server_belong_link; ?>"><?php }; echo $session_server_belong; if ( $session_server_belong_link ) { ?></a><?php } ?><br>
+					所属 : <?php if ( $session_server_belong_link ) { ?><a target="_blank" href="<?php echo $session_server_belong_link; ?>"><?php }; echo $session_server_belong; if ( $session_server_belong_link ) { ?></a><?php } ?><br>
 					<?php echo $session_server_profile; ?>
 				</div>
 			</div>
@@ -178,7 +178,7 @@ $slide_data   = get_field( 'スライド' );
 
 		<?php endwhile; ?>
 
-  <?php endif; ?>
+	<?php endif; ?>
 		<?php
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . __( 'Pages:', 'wordfes2014' ),
@@ -187,13 +187,13 @@ $slide_data   = get_field( 'スライド' );
 		?>
 	</div><!-- .entry-content -->
 
-  <?php the_content(); ?>
+	<?php the_content(); ?>
 
 </article><!-- #post-## -->
 
 <?php if ( is_user_logged_in() ) { ?>
 	<footer class="entry-footer">
-	  <?php edit_post_link( __( '編集', 'wordfes2014' ), '<span class="edit-link btn btn-default">', '</span>' ); ?>
+		<?php edit_post_link( __( '編集', 'wordfes2014' ), '<span class="edit-link btn btn-default">', '</span>' ); ?>
 	</footer><!-- .entry-footer -->
 <?php
 } ?>

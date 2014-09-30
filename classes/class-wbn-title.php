@@ -28,7 +28,7 @@ class WBN_Title_Widget extends WP_Widget {
 		add_action( 'switch_theme', array( &$this, 'flush_widget_cache' ) );
 	}
 
-	function widget( $args, $instance ) {
+	public function widget( $args, $instance ) {
 		$cache = wp_cache_get( 'widget_wbn_title', 'widget' );
 
 		if ( ! is_array( $cache ) ) {
@@ -113,10 +113,10 @@ class WBN_Title_Widget extends WP_Widget {
 		echo $after_widget;
 
 		$cache[$args['widget_id']] = ob_get_flush();
-		wp_cache_set('widget_wbn_title', $cache, 'widget');
+		wp_cache_set( 'widget_wbn_title', $cache, 'widget' );
 	}
 
-	function update( $new_instance, $old_instance ) {
+	public function update( $new_instance, $old_instance ) {
 		$instance = array_map( 'strip_tags', $new_instance );
 
 		$this->flush_widget_cache();
@@ -130,17 +130,17 @@ class WBN_Title_Widget extends WP_Widget {
 		return $instance;
 	}
 
-	function flush_widget_cache() {
+	public function flush_widget_cache() {
 		wp_cache_delete( 'widget_wbn_title', 'widget' );
 	}
 
-	function form( $instance ) {
+	public function form( $instance ) {
 		foreach( $this->fields as $name => $label ) {
 			${ $name } = isset( $instance[$name] ) ? esc_attr( $instance[$name] ) : '';
 		?>
 		<p>
-			<label for="<?php echo esc_attr($this->get_field_id($name)); ?>"><?php _e("{$label}:", 'wordfes2014'); ?></label>
-			<input class="widefat" id="<?php echo esc_attr($this->get_field_id($name)); ?>" name="<?php echo esc_attr($this->get_field_name($name)); ?>" type="text" value="<?php echo ${$name}; ?>">
+			<label for="<?php echo esc_attr( $this->get_field_id( $name ) ); ?>"><?php _e( "{$label}:", 'wordfes2014' ); ?></label>
+			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( $name ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( $name ) ); ?>" type="text" value="<?php echo ${$name}; ?>">
 		</p>
 		<?php
 		}
