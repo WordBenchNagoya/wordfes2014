@@ -9,6 +9,7 @@
  * @copyright  2014 WordBench Nagoya
  * =====================================================
  */
+global $wp_query;
 ?>
 
 	<section id="primary" class="content-area post-contents">
@@ -68,7 +69,7 @@
 			<?php
 			// wp_pagenavi
 			if ( function_exists( 'wp_pagenavi' ) ) {
-				wp_pagenavi();
+				wp_pagenavi( array( 'query' => $wp_query ) );
 			} ?>
 			</nav>
 		</main><!-- #main -->

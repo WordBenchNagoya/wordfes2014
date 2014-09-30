@@ -16,6 +16,7 @@ $website      = get_field( 'session_website' );
 $contents     = get_field( 'session_contents' );
 $speaker_name = get_field( 'session_speaker_name' );
 $belong_link  = get_field( 'session_speaker_belong_link' );
+$slide_data   = get_field( 'スライド' );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'main-block' ); ?>>
@@ -30,7 +31,17 @@ $belong_link  = get_field( 'session_speaker_belong_link' );
 	<div class="entry-content">
 		<div class="row">
 			<div class="col-lg-6 col-xs-12">
-				<?php echo wp_kses_post( $contents ); ?>
+				<?php
+          echo wp_kses_post( $contents );
+          if ( $slide_data ) { ?>
+            <p>
+              <a href="<?php the_field( 'スライド' );?>" target="_blank">
+              <img src="<?php echo get_template_directory_uri() ?>/assets/img/common/arrow-sm.gif" alt=""> スライドはこちら
+              </a>
+            </p>
+        <?php
+          }
+        ?>
 			</div>
 			<div class="col-lg-6 col-xs-12">
 				<h4 class="sub-title04">こんな方へ</h4>

@@ -46,10 +46,10 @@ Template Name: ホーム テンプレート
 			</div>
 			<nav class="collapse navbar-collapse" role="navigation">
 				<?php
-if ( has_nav_menu( 'primary_navigation' ) ) :
+if ( has_nav_menu( 'primary' ) ) :
 	wp_nav_menu(
 		array(
-			'theme_location' => 'sub-primary',
+			'theme_location' => 'primary',
 			'menu_class'     => 'nav-main nav navbar-nav',
 			'fallback_cb'    => 'WP_Bootstrap_Navwalker::fallback',
 			'walker'         => new WP_Bootstrap_Navwalker(),

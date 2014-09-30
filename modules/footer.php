@@ -16,6 +16,8 @@
 	<footer class="footer">
 		<p class="copyright">Copyright © WordFes Nagoya 2014 All Rights Reserved.</p>
 	</footer>
+  <?php dynamic_sidebar( 'footer-primary' ); ?>
+
 	<!-- GA -->
 	<script>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
