@@ -2,32 +2,32 @@
 /*
 Template Name: スタッフ一覧テンプレート
 */
-	/**
-	 * The WordPress Query class.
-	 * @link http://codex.wordpress.org/Function_Reference/WP_Query
-	 *
-	 */
-	$args = array(
+/**
+ * The WordPress Query class.
+ * @link http://codex.wordpress.org/Function_Reference/WP_Query
+ *
+ */
+$args = array(
 
-		//Type & Status Parameters
-		'post_type'   => array( 'staff' ),
+	//Type & Status Parameters
+	'post_type'   => array( 'staff' ),
 
-		'post_status' => array(
-			'publish',
-			//'pending',
-			//'draft',
-			//'auto-draft',
-			'future',
-			'private',
-			'inherit'
-			//'trash'
-			),
-		 'posts_per_page' => '50',
-		 'orderby' => 'date',
-		 'orderby' => 'ASC'
-	);
+	'post_status' => array(
+		'publish',
+		//'pending',
+		//'draft',
+		//'auto-draft',
+		'future',
+		'private',
+		'inherit'
+		//'trash'
+		),
+	 'posts_per_page' => '50',
+	 'orderby' => 'date',
+	 'orderby' => 'ASC'
+);
 
-	$query = new WP_Query( $args );
+$query = new WP_Query( $args );
 ?>
 
 	<section id="primary" class="content-area post-contents">

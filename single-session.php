@@ -12,15 +12,15 @@
  * =====================================================
  */
 ?>
-  <div id="primary" class="content-area post-contents">
+	<div id="primary" class="content-area post-contents">
 
-    <?php
-    while ( have_posts() ) : the_post();
+		<?php
+		while ( have_posts() ) : the_post();
 
-      get_template_part( 'templates/content', 'session' );
+			get_template_part( 'templates/content', 'session' );
 
-      // wordfes2014_post_nav();
-      ?>
+			// wordfes2014_post_nav();
+			?>
 			<div class="nav-previous pull-left" style="margin-bottom: 20px">
 				<a href="http://2014.wordfes.org/sessions/" class="btn btn-primary" rel="prev">
 					<span class="meta-nav">
@@ -28,15 +28,15 @@
 					</span>
 					タイムテーブルへ戻る</a></div>
 
-      <?php
+			<?php
 
-        // If comments are open or we have at least one comment, load up the comment template
-        // if ( comments_open() || '0' != get_comments_number() ) :
-        //   comments_template();
-        // endif;
-    endwhile; // end of the loop. ?>
+				// If comments are open or we have at least one comment, load up the comment template
+				// if ( comments_open() || '0' != get_comments_number() ) :
+				//   comments_template();
+				// endif;
+		endwhile; // end of the loop. ?>
 
-  </div><!-- #primary -->
+	</div><!-- #primary -->
 
 
 
